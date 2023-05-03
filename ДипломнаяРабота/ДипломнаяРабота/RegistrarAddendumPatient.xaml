@@ -1,0 +1,226 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ДипломнаяРабота"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="ДипломнаяРабота.RegistrarAddendumPatient"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1600"
+      Title="RegistrarAddendumPatient">
+    <Page.Resources>
+        <local:ДипломDataSet x:Key="дипломDataSet"/>
+        <CollectionViewSource x:Key="пациентViewSource" Source="{Binding Пациент, Source={StaticResource дипломDataSet}}"/>
+    </Page.Resources>
+
+    <Grid>
+        <DataGrid x:Name="TablePatient" Height="380" ColumnWidth="120" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" FontSize="15"/>
+        <Button Content="Добавить пациента" HorizontalAlignment="Left" Margin="797,403,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Add" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Удалить пациента" HorizontalAlignment="Left" Margin="797,488,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Delete" RenderTransformOrigin="0.487,-0.3" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Внести изменения" HorizontalAlignment="Left" Margin="797,572,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Update" RenderTransformOrigin="0.487,-0.3" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="grid2" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="86,401,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Фамилия:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="фамилияTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Фамилия, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" TextChanged="профессияTextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="130,444,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Имя:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="имяTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Имя, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" TextChanged="профессияTextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="84,487,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Отчество:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="отчествоTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Отчество, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" TextChanged="профессияTextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="grid5" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="92,530,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Паспорт:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Grid x:Name="grid6" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="113,573,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Снилс:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Grid x:Name="grid7" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="111,616,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Полис:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Grid x:Name="grid8" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="28,659,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Дата Рождения:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <DatePicker x:Name="датаРожденияDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding ДатаРождения, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" Height="30"/>
+        </Grid>
+        <Grid x:Name="grid10" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="456,395,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Профессия:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="профессияTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Профессия, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" TextChanged="профессияTextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="grid11" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="428,438,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Место Работы:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="местоРаботыTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding МестоРаботы, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid12" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="502,481,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Город:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="городTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Город, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid13" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="502,524,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Улица:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="улицаTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Улица, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid14" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="518,567,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Дом:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="домTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding дом, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid15" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="406,610,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="НомерКвартиры:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="номерКвартирыTextBox" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding НомерКвартиры, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid16" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="397,653,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="ПочтовыйИндекс:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Grid x:Name="grid9" DataContext="{StaticResource пациентViewSource}" HorizontalAlignment="Left" Margin="479,696,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Телефон:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <TextBox x:Name="Фамилия" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="1065,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" FontSize="15" BorderBrush="#FF8AA3F5">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None"  Opacity="0.4" Stretch="None" AlignmentX="Left" >
+                    <VisualBrush.Visual>
+                        <TextBlock  FontStyle="Normal" Text="Поиск" FontSize="20" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <xctk:MaskedTextBox x:Name="телефонTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="584,702,0,0"  Mask="+7(999)-999-99-99"  RenderTransformOrigin="0.5,0.5" Width="200" Height="30" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:MaskedTextBox x:Name="паспортTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="191,535,0,0"  Mask="99 99  999999"  RenderTransformOrigin="0.5,0.5" Width="200" Height="30" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:MaskedTextBox x:Name="снилсTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="191,581,0,0"  Mask="999-999-999 99"  RenderTransformOrigin="0.5,0.5" Width="200" Height="30" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:MaskedTextBox x:Name="полисTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="191,622,0,0"  Mask="9999 9999 9999 9999"  RenderTransformOrigin="0.5,0.5" Width="200" Height="30" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <xctk:MaskedTextBox x:Name="почтовыйИндексTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Margin="584,658,0,0"  Mask="999999"  RenderTransformOrigin="0.5,0.5" Width="200" Height="30" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

@@ -1,0 +1,90 @@
+﻿<Page x:Class="ДипломнаяРабота.Administrator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ДипломнаяРабота"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1600"
+      Title="Administrator">
+    <Page.Resources>
+        <local:ДипломDataSet x:Key="дипломDataSet"/>
+        <CollectionViewSource x:Key="сотрудникViewSource" Source="{Binding Сотрудник, Source={StaticResource дипломDataSet}}"/>
+    </Page.Resources>
+
+    <Grid Height="750" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1600">
+
+
+        <Grid x:Name="grid1" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,31,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Имя:"  Grid.Column="1" HorizontalAlignment="Left" Margin="1,3,0,3" Grid.Row="0" VerticalAlignment="Center" RenderTransformOrigin="-5.986,0.404" FontSize="20" Grid.ColumnSpan="2" Width="63"/>
+            <TextBox x:Name="имяTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="96,13,-89,0" Grid.Row="0" Text="{Binding Имя, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,69,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Фамилия:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="фамилияTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="36,10,-27,3" Grid.Row="0" Text="{Binding Фамилия, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,105,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Отчество:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="отчествоTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="34,10,-25,3" Grid.Row="0" Text="{Binding Отчество, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,141,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Телефон:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="телефонTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="40,10,-28,3" Grid.Row="0" Text="{Binding Телефон, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Grid x:Name="grid5" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,175,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Паспорт:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="паспортTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="42,10,-32,3" Grid.Row="0" Text="{Binding Паспорт, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Grid x:Name="grid6" DataContext="{StaticResource сотрудникViewSource}" HorizontalAlignment="Left" Margin="228,217,0,0" VerticalAlignment="Top" Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Снилс:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="снилсTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="63,3,-53,10" Grid.Row="0" Text="{Binding Снилс, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="140" Margin="49,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="140"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="177" Margin="35,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="396"/>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,51 @@
+﻿<Page x:Class="ДипломнаяРабота.AdminAddendumProfessions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ДипломнаяРабота"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1600"
+      Title="AdminAddendumProfessions">
+    <Page.Resources>
+        <local:ДипломDataSet x:Key="дипломDataSet"/>
+        <CollectionViewSource x:Key="профессияViewSource" Source="{Binding Профессия, Source={StaticResource дипломDataSet}}"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="127*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="TableProfessions" AutoGenerateColumns="True" Height="380" Margin="10,10,14,0" VerticalAlignment="Top" SelectionChanged="TableProfessions_SelectionChanged" Grid.ColumnSpan="2"/>
+        <Button Content="Добавить профессию" HorizontalAlignment="Left" Margin="101,402,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF83E9F9" FontSize="20" Click="Button_Click_Add" Grid.Column="1"/>
+        <Button Content="Удалить профессию" HorizontalAlignment="Left" Margin="101,488,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF83E9F9" FontSize="20" Click="Button_Click_Delete" RenderTransformOrigin="0.487,-0.3" Grid.Column="1"/>
+        <Button Content="Внести изменения" HorizontalAlignment="Left" Margin="101,572,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF83E9F9" FontSize="20" Click="Button_Click_Update" RenderTransformOrigin="0.487,-0.3" Grid.Column="1"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource профессияViewSource}" HorizontalAlignment="Left" Margin="15,408,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="НомерПрофессии:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="номерПрофессииTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding НомерПрофессии, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+            <Label Content="Название:" Grid.Column="0" HorizontalAlignment="Left" Margin="87,0,0,6" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="названиеTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="1" Text="{Binding Название, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+            <Label Content="Категория:" Grid.Column="0" HorizontalAlignment="Left" Margin="81,3,0,3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="категорияTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="2" Text="{Binding Категория, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+            <Label Content="Оклад:" Grid.Column="0" HorizontalAlignment="Left" Margin="118,3,0,3" Grid.Row="3" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="окладTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="3" Text="{Binding Оклад, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+        </Grid>
+        <TextBox x:Name="Имя" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="360,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="15" Grid.Column="1"/>
+        <Button Content="Поиск" HorizontalAlignment="Left" Margin="580,403,0,0" VerticalAlignment="Top" Width="200" Height="60" Background="#FF83E9F9" FontSize="20" Click="Click_Search" Grid.Column="1"/>
+        <TextBox x:Name="Фамилия" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="360,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="15" Grid.Column="1"/>
+        <TextBox x:Name="Отчество" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="360,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="15" Grid.Column="1"/>
+        <Button Content="Очистить" HorizontalAlignment="Left" Margin="580,488,0,0" VerticalAlignment="Top" Width="200" Height="60" Background="#FF83E9F9" FontSize="20" Click="Click_Clear" Grid.Column="1"/>
+
+    </Grid>
+</Page>

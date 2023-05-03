@@ -1,0 +1,133 @@
+﻿<Page x:Class="ДипломнаяРабота.RegistrarMakeAnAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ДипломнаяРабота"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1600"
+      Title="RegistrarMakeAnAppointment">
+    <Page.Resources>
+        <local:ДипломDataSet x:Key="дипломDataSet"/>
+        <CollectionViewSource x:Key="записьНаПриёмViewSource" Source="{Binding ЗаписьНаПриём, Source={StaticResource дипломDataSet}}"/>
+        <CollectionViewSource x:Key="пациентViewSource" Source="{Binding Пациент, Source={StaticResource дипломDataSet}}"/>
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource пациентViewSource}">
+        <DataGrid x:Name="TableMake" HorizontalAlignment="Left" ColumnWidth="120" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="DataGridMake_SelectionChanged" FontSize="15"/>
+        <Button Content="Добавить запись" HorizontalAlignment="Left" Margin="425,416,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Add" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Удалить запись" HorizontalAlignment="Left" Margin="425,501,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Delete" RenderTransformOrigin="0.487,-0.3" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Внести изменения" HorizontalAlignment="Left" Margin="425,585,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Update" RenderTransformOrigin="0.487,-0.3" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="grid1" DataContext="{StaticResource записьНаПриёмViewSource}" HorizontalAlignment="Left" Margin="135,404,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Дата:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <DatePicker x:Name="датаDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding Дата, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" Height="30" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource записьНаПриёмViewSource}" HorizontalAlignment="Left" Margin="120,439,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Время:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="времяTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding Время, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource записьНаПриёмViewSource}" HorizontalAlignment="Left" Margin="25,474,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Номер Кабинета:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="номерКабинетаTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding НомерКабинета, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
+        </Grid>
+        <DataGrid x:Name="TablePatient" HorizontalAlignment="Left" ColumnWidth="120" Height="200" Margin="805,10,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="DataGridMake_SelectionChanged" FontSize="15"/>
+        <DataGrid x:Name="TableDoctor" HorizontalAlignment="Left" ColumnWidth="120" Height="200" Margin="805,389,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="DataGridMake_SelectionChanged" FontSize="15"/>
+        <Button Content="Выбрать пациента" HorizontalAlignment="Left" Margin="805,215,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Patient" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Выбрать доктора" HorizontalAlignment="Left" Margin="805,594,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Doctor" BorderBrush="#FF8AA3F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="Фамилия" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="1060,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" FontSize="20">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None"  Opacity="0.4" Stretch="None" AlignmentX="Left" >
+                    <VisualBrush.Visual>
+                        <TextBlock  FontStyle="Normal" Text="Поиск" FontSize="20" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="Имя" TextChanged="TextBoxTextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="1060,594,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" FontSize="20">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None"  Opacity="0.4" Stretch="None" AlignmentX="Left" >
+                    <VisualBrush.Visual>
+                        <TextBlock  FontStyle="Normal" Text="Поиск" FontSize="20" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="ДипломнаяРабота.RegistrarVerification"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ДипломнаяРабота"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1600"
+      Title="RegistrarVerification">
+
+    <Grid>
+        <DataGrid x:Name="TableP" ColumnWidth="120" HorizontalAlignment="Left" Height="320" Margin="10,10,0,0" VerticalAlignment="Top" Width="1150" SelectionChanged="DataGridVerification_SelectionChanged" FontSize="15">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <EventSetter Event="Control.MouseDoubleClick" Handler="Row_DoubleClick" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <DataGrid x:Name="DopTable" HorizontalAlignment="Left" ColumnWidth="120" Height="347" Margin="10,393,0,0" VerticalAlignment="Top" Width="1580" SelectionChanged="DataGridVerificationDop_SelectionChanged" FontSize="15">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <EventSetter Event="Control.MouseDoubleClick" Handler="Row_DoubleClick" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <Label Content="Сведения о записях пациента" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.71,0.599" FontSize="20"/>
+        <TextBox x:Name="Фамилия" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="1165,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" FontSize="20">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None"  Opacity="0.4" Stretch="None" AlignmentX="Left" >
+                    <VisualBrush.Visual>
+                        <TextBlock  FontStyle="Normal" Text="Поиск" FontSize="20" />
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+    </Grid>
+</Page>
