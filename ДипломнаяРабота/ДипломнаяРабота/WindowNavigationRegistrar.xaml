@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ДипломнаяРабота"
         mc:Ignorable="d"
-         Height="850" Width="1600" WindowStartupLocation="CenterScreen"    >
+         Height="850" Width="1600" WindowStartupLocation="CenterScreen"  Icon="image/Bitmap.bmp"  >
     
     <Window.Resources>
         <local:ДипломDataSet x:Key="дипломDataSet"/>

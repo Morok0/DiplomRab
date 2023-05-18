@@ -99,20 +99,7 @@ namespace ДипломнаяРабота
             private void Button_Click_Add(object sender, RoutedEventArgs e)
             {   
             
-                /*
-                //добавление строки подключения
-                string sconnect = mainWindow.sconnect;
-                //добавление номера профессии через комбо бокс
-               
-                SqlConnection con = new SqlConnection(sconnect);
-                SqlCommand cmd = new SqlCommand("Select НомерПрофессии From Профессия WHERE Название=@id", con);
-                con.Open();
-                cmd.Parameters.Add(new SqlParameter("@id", buf));
-                SqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                string combo = dr.GetValue(0).ToString();
-                dr.Close();
-                con.Close();*/
+                
 
 
                 //инициализация переменных
@@ -120,7 +107,7 @@ namespace ДипломнаяРабота
                 //string bufProfession = combo;
                 string bufAccessRights = AccessRights.Text;
             
-                //string ServiceNumber = табельныйНомерTextBox.Text;
+                
                 string FirstName = имяTextBox.Text;
                 string LastName = фамилияTextBox.Text;
                 string MiddleName = отчествоTextBox.Text;
@@ -129,7 +116,7 @@ namespace ДипломнаяРабота
                 string Snils = снилсTextBox.Text;
                 string Login = логинTextBox.Text;
                 string Password = парольTextBox.Text;
-            if (FirstName == null /*FirstName==null || LastName==null || MiddleName==null || Telephone == null || Passport == null || Snils == null ||  Password == null || Login == null || bufAccessRights == null*/)
+            if (FirstName == null )
             {
                 MessageBox.Show("Проверте все ли поля заполнены");
             }
@@ -139,7 +126,6 @@ namespace ДипломнаяРабота
                 SqlCommand cmdd = new SqlCommand("INSERT_Сотрудник", conn);
                 conn.Open();
                 cmdd.CommandType = CommandType.StoredProcedure;
-                //cmdd.Parameters.Add(new SqlParameter("@ТабельныйНомер", ServiceNumber));
                 cmdd.Parameters.Add(new SqlParameter("@Имя", FirstName));
                 cmdd.Parameters.Add(new SqlParameter("@Фамилия", LastName));
                 cmdd.Parameters.Add(new SqlParameter("@Отчество", MiddleName));
@@ -172,29 +158,46 @@ namespace ДипломнаяРабота
             string sconnect = mainWindow.sconnect;
             if (TableAdministrator.SelectedItem is DataRowView row)
             {
+                
                 int id = (int)row[0];
                 string IdDisplay = Convert.ToString(row["ТабельныйНомер"]);
-                try
+                MessageBox.Show(Convert.ToString(id));
+                if (row == null)
                 {
-                    SqlConnection conn = new SqlConnection(sconnect);
-                    SqlCommand cmdd = new SqlCommand("Select * From Сотрудник WHERE ТабельныйНомер=@ID ", conn);
-                    conn.Open();
-                    cmdd.Parameters.Add(new SqlParameter("@id", IdDisplay));
-                    SqlDataReader drr = cmdd.ExecuteReader();
-                    drr.Read();
-                    //табельныйНомерTextBox.Text = drr.GetValue(0).ToString();
-                    имяTextBox.Text = drr.GetValue(2).ToString();
-                    фамилияTextBox.Text = drr.GetValue(1).ToString();
-                    отчествоTextBox.Text = drr.GetValue(3).ToString();
-                    телефонTextBox.Text = drr.GetValue(4).ToString();
-                    паспортTextBox.Text = drr.GetValue(5).ToString();
-                    снилсTextBox.Text = drr.GetValue(6).ToString();
-                    логинTextBox.Text = drr.GetValue(7).ToString();
-                    парольTextBox.Text = drr.GetValue(8).ToString();
+                    имяTextBox.Clear();
+                    фамилияTextBox.Clear();
+                    отчествоTextBox.Clear();
+                    телефонTextBox.Clear();
+                    паспортTextBox.Clear();
+                    снилсTextBox.Clear();
+                    логинTextBox.Clear();
+                    парольTextBox.Clear();
                 }
-                catch
+                else
                 {
 
+                    try
+                    {
+                        SqlConnection conn = new SqlConnection(sconnect);
+                        SqlCommand cmdd = new SqlCommand("Select * From Сотрудник WHERE ТабельныйНомер=@ID ", conn);
+                        conn.Open();
+                        cmdd.Parameters.Add(new SqlParameter("@id", IdDisplay));
+                        SqlDataReader drr = cmdd.ExecuteReader();
+                        drr.Read();
+                        //табельныйНомерTextBox.Text = drr.GetValue(0).ToString();
+                        имяTextBox.Text = drr.GetValue(2).ToString();
+                        фамилияTextBox.Text = drr.GetValue(1).ToString();
+                        отчествоTextBox.Text = drr.GetValue(3).ToString();
+                        телефонTextBox.Text = drr.GetValue(4).ToString();
+                        паспортTextBox.Text = drr.GetValue(5).ToString();
+                        снилсTextBox.Text = drr.GetValue(6).ToString();
+                        логинTextBox.Text = drr.GetValue(7).ToString();
+                        парольTextBox.Text = drr.GetValue(8).ToString();
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
         }
@@ -290,7 +293,7 @@ namespace ДипломнаяРабота
             string middleName = Фамилия.Text;
             string text = Фамилия.Text; // получаем текст из TextBox
             string[] words = text.Split(' '); // разбиваем текст на слова по пробелу
-            if (words.Length > 2) // проверяем, что введено хотя бы два слова
+            if (words.Length > 1) // проверяем, что введено хотя бы два слова
             {
                 string Surname = words[0];
                 string Name = words[1];
@@ -299,7 +302,7 @@ namespace ДипломнаяРабота
                 surname = Surname;
                 middleName = MiddleName;
             }
-            //MessageBox.Show(surname);
+           
             string sconnect = mainWindow.sconnect;
             SqlConnection con = new SqlConnection(sconnect);
             string sql = "SELECT  * FROM Сотрудник  WHERE Фамилия LIKE '%'+@surname+'%' or Имя  LIKE '%' + @name + '%' or Отчество  LIKE '%' + @middleName + '%'  ";
@@ -310,9 +313,7 @@ namespace ДипломнаяРабота
             cmd.Parameters.Add(new SqlParameter("@name", name));
             cmd.Parameters.Add(new SqlParameter("@middleName", middleName));
             SqlDataReader dr = cmd.ExecuteReader();
-            //результат запроса суем в таблицу
             dt.Load(dr);
-            //заполняем datagridview - (поле данных...где выводится результат поиска)
             TableAdministrator.ItemsSource = dt.AsDataView();
         }
 

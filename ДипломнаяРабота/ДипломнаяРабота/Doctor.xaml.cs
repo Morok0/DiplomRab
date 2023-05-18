@@ -61,8 +61,8 @@ namespace ДипломнаяРабота
             фамилияTextBox.Text = dr.GetString(1);
             отчествоTextBox.Text = dr.GetString(2);
             телефонTextBox.Text = dr.GetString(3);
-            паспортTextBox.Text = dr.GetInt32(4).ToString();
-            снилсTextBox.Text = dr.GetInt32(5).ToString();
+            //паспортTextBox.Text = dr.GetInt32(4).ToString();
+            //снилсTextBox.Text = dr.GetInt32(5).ToString();
         }
     }
 }

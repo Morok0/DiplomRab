@@ -26,6 +26,7 @@ namespace ДипломнаяРабота
         public static string buf;
         public static string bufPatient;
         public static string bufRecord;
+        public static string bufDiagnosis;
         private readonly User _user;
         public DoctorReception(User user)
         {
@@ -46,26 +47,26 @@ namespace ДипломнаяРабота
             con.Close();
             buf = bufUser;
             refreshPatient();
+            refreshReception();
+
         }
-        /*public void refresh()
+
+        public void refreshReception()
         {
-            //вывод данных в таблицу администратора
-            // актуализация данных в таблице 
             string sconnect = mainWindow.sconnect;
+
             SqlConnection con = new SqlConnection(sconnect);
-            string sql = "SELECT * FROM ПриёмВрача ";
+            string sql = " SELECT ПВ.НомерПриёма,ПВ.Диагноз,ПВ.Лечение, ПВ.НачалоПриёма, ПВ.КонецПриёма  FROM ПриёмВрача ПВ JOIN Сотрудник С ON ПВ.ТабельныйНомер=С.ТабельныйНомер WHERE С.ТабельныйНомер=@ТабельныйНомер ";
             con.Open();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.Add(new SqlParameter("@ТабельныйНомер", buf));
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             TableReception.ItemsSource = dt.AsDataView();
             con.Close();
+        }
 
-
-
-
-        }*/
         public void refreshPatient()
         {
             string sconnect = mainWindow.sconnect;
@@ -85,11 +86,10 @@ namespace ДипломнаяРабота
             private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
             string sconnect = mainWindow.sconnect;
-            
-            //string Work = номерПриёмаTextBox.Text;
             string PatientNumber = началоПриёмаTextBox.Text;
             string FirstName = конецПриёмаTextBox.Text;
             string LastName = диагнозTextBox.Text;
+            bufDiagnosis = LastName;
             string MiddleName = лечениеTextBox.Text;
             
                 if (PatientNumber == null || FirstName == null || LastName == null || MiddleName == null)
@@ -102,7 +102,6 @@ namespace ДипломнаяРабота
                     SqlCommand cmdd = new SqlCommand("INSERT_ПриёмВрача", conn);
                     conn.Open();
                     cmdd.CommandType = CommandType.StoredProcedure;
-                    //cmdd.Parameters.Add(new SqlParameter("@НомерПриёма", Work));
                     cmdd.Parameters.Add(new SqlParameter("@НачалоПриёма", PatientNumber));
                     cmdd.Parameters.Add(new SqlParameter("@КонецПриёма", FirstName));
                     cmdd.Parameters.Add(new SqlParameter("@Диагноз", LastName));
@@ -111,15 +110,22 @@ namespace ДипломнаяРабота
                     cmdd.Parameters.Add(new SqlParameter("@НомерПациента", bufPatient));
                     cmdd.Parameters.Add(new SqlParameter("@НомерЗаписи", bufRecord));
                     cmdd.ExecuteNonQuery();
-
                     MessageBox.Show("Запись добавлена");
-                    //refresh();
+
+                SqlConnection con = new SqlConnection(sconnect);
+                SqlCommand cmd = new SqlCommand("INSERT_ИсторияБолезни", con);
+                con.Open();
+                cmd.CommandType = CommandType.StoredProcedure; 
+                cmd.Parameters.Add(new SqlParameter("@Диагноз", LastName));
+                cmd.Parameters.Add(new SqlParameter("@Лечение", MiddleName));      
+                cmd.Parameters.Add(new SqlParameter("@НомерПациента", bufPatient));
+                cmd.ExecuteNonQuery();
+
+                refreshReception();
+                refreshPatient();
                 }
             
-           /* catch
-            {
-                MessageBox.Show("Проверьте правильность введённых данных");
-            }*/
+         
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -132,35 +138,7 @@ namespace ДипломнаяРабота
 
         }
 
-        /*private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string sconnect = mainWindow.sconnect;
-            if (TableReception.SelectedItem is DataRowView row)
-            {
-                int id = (int)row[0];
-                string IdDisplay = Convert.ToString(row["НомерПриёма"]);
-                try
-                {
-                    SqlConnection conn = new SqlConnection(sconnect);
-                    SqlCommand cmdd = new SqlCommand("Select * From ПриёмВрача WHERE НомерПриёма=@ID ", conn);
-                    conn.Open();
-                    cmdd.Parameters.Add(new SqlParameter("@id", IdDisplay));
-                    SqlDataReader drr = cmdd.ExecuteReader();
-                    drr.Read();
-                    //номерПриёмаTextBox.Text = drr.GetValue(0).ToString();
-                    началоПриёмаTextBox.Text = drr.GetValue(1).ToString();
-                    конецПриёмаTextBox.Text = drr.GetValue(2).ToString();
-                    диагнозTextBox.Text = drr.GetValue(3).ToString();
-                    лечениеTextBox.Text = drr.GetValue(4).ToString();
-                   
-
-                }
-                catch
-                {
-
-                }
-            }
-        }*/
+       
 
         private void Button_Click_Patient(object sender, RoutedEventArgs e)
         {

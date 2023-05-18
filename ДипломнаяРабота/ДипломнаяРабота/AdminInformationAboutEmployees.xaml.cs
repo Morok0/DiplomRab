@@ -79,8 +79,6 @@ namespace ДипломнаяРабота
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = sender as DataGridRow;
-
-
             refreshDopTable();
 
         }

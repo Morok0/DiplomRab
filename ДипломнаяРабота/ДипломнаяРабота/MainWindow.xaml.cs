@@ -23,6 +23,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Xceed.Document.NET;
 
+
 namespace ДипломнаяРабота
 {
     /// <summary>
@@ -45,16 +46,16 @@ public partial class MainWindow : Window
         {
             InitializeComponent();
 
-            Uri iconUri = new Uri("D://Studia//ДипломнаяРабота//ДипломнаяРабота//Bitmap1.bmp", UriKind.RelativeOrAbsolute);
-            this.Icon = BitmapFrame.Create(iconUri);
+            
             //проверка есть ли в бд записи в этой таблице
             string DopPer="";
             SqlConnection con = new SqlConnection(sconnect);
             SqlCommand cmd = new SqlCommand("SELECT Логин FROM Сотрудник", con);
             con.Open();
-
+           
             try
             {
+
                 DopPer = cmd.ExecuteScalar().ToString();
                 //обработка первого входа в приложение
                 if (DopPer != null)
@@ -75,7 +76,7 @@ public partial class MainWindow : Window
 
            
         }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -140,23 +141,9 @@ public partial class MainWindow : Window
             {
                 MessageBox.Show("Пожалуйста, проверьте правильность введенных данных!");
             }
+           
+           
 
-            //Удалить!!!
-            //Попытка поработать с ворд документом №1 \\
-            try
-            {
-                string fileName = @"D:\\Studia\\ДипломнаяРабота\\ДипломнаяРабота\\HelpTemplates\\Example.docx";
-                var doc = DocX.Create(fileName);
-                string title = "Vero eos et accusamus";
-                string textParagraph = "" + "Dear Friends, " + Login.Text + " Lorem ipsum dolor sit amet, consectetur adipiscing elit, " + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " + Password.Password + " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " + "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " + "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
-                doc.InsertParagraph(textParagraph, false);
-                doc.Save();
-                Process.Start("WINWORD.EXE", fileName);
-            }
-            catch
-            {
-
-            }
 
         }
 

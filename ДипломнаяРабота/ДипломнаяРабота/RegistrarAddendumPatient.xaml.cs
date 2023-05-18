@@ -71,16 +71,16 @@ namespace ДипломнаяРабота
                     фамилияTextBox.Text = drr.GetValue(1).ToString();
                     отчествоTextBox.Text = drr.GetValue(3).ToString();
                     паспортTextBox.Text = drr.GetValue(4).ToString();
-                    снилсTextBox.Text = drr.GetValue(6).ToString();
-                    полисTextBox.Text = drr.GetValue(8).ToString();
-                    профессияTextBox.Text = drr.GetValue(9).ToString();
-                    местоРаботыTextBox.Text = drr.GetValue(10).ToString();
-                    городTextBox.Text = drr.GetValue(11).ToString();
-                    улицаTextBox.Text = drr.GetValue(12).ToString();
-                    домTextBox.Text = drr.GetValue(13).ToString();
-                    номерКвартирыTextBox.Text = drr.GetValue(14).ToString();
-                    почтовыйИндексTextBox.Text = drr.GetValue(15).ToString();
-                    телефонTextBox.Text = drr.GetValue(16).ToString();
+                    снилсTextBox.Text = drr.GetValue(5).ToString();
+                    полисTextBox.Text = drr.GetValue(7).ToString();
+                    профессияTextBox.Text = drr.GetValue(8).ToString();
+                    местоРаботыTextBox.Text = drr.GetValue(9).ToString();
+                    городTextBox.Text = drr.GetValue(10).ToString();
+                    улицаTextBox.Text = drr.GetValue(11).ToString();
+                    домTextBox.Text = drr.GetValue(12).ToString();
+                    номерКвартирыTextBox.Text = drr.GetValue(13).ToString();
+                    почтовыйИндексTextBox.Text = drr.GetValue(14).ToString();
+                    телефонTextBox.Text = drr.GetValue(15).ToString();
                 }
                 catch
                 {
@@ -102,6 +102,10 @@ namespace ДипломнаяРабота
             string Passport = паспортTextBox.Text;
             string Snils = снилсTextBox.Text;
             string DateOfBirth = датаРожденияDatePicker.Text;
+            string Date;
+            string[] words = DateOfBirth.Split(' ');
+            string result = words[0] + " " + string.Join(" ", words.Skip(1).Take(words.Length - 2));
+            MessageBox.Show(result);
             string Polis = полисTextBox.Text;
             string City = городTextBox.Text;
             string Street = улицаTextBox.Text;
@@ -124,7 +128,7 @@ namespace ДипломнаяРабота
                 cmdd.Parameters.Add(new SqlParameter("@Отчество", MiddleName));
                 cmdd.Parameters.Add(new SqlParameter("@Паспорт", Passport));
                 cmdd.Parameters.Add(new SqlParameter("@Снилс", Snils));
-                cmdd.Parameters.Add(new SqlParameter("@ДатаРождения", DateOfBirth));
+                cmdd.Parameters.Add(new SqlParameter("@ДатаРождения", result));
                 cmdd.Parameters.Add(new SqlParameter("@Полис", Polis));
                 cmdd.Parameters.Add(new SqlParameter("@Профессия", Profession));
                 cmdd.Parameters.Add(new SqlParameter("@МестоРаботы", Work));

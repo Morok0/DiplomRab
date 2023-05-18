@@ -6,15 +6,15 @@
         xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:ДипломнаяРабота"
         mc:Ignorable="d"
-          Height="600" Width="450" WindowStartupLocation="CenterScreen"  >
+          Height="600" Width="450" WindowStartupLocation="CenterScreen" Icon="image/Bitmap.bmp" WindowStyle="ToolWindow" >
     <Grid>
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="569" VerticalAlignment="Top" Width="442">
             <Border.Background>
-                <ImageBrush ImageSource="D:\Studia\ДипломнаяРабота\ДипломнаяРабота\image\Фон2.jpg"/>
+                <ImageBrush ImageSource="image/Fon.jpg"/>
             </Border.Background>
             <Label Content="Сlinic" Margin="163,40,162,455" FontSize="55" FontFamily="Vivaldi" RenderTransformOrigin="0.478,0.417"/>
         </Border>
-        
+
         <PasswordBox x:Name="Password" Background="Transparent" HorizontalAlignment="Left" BorderThickness="3,3,3,3" BorderBrush="#FF8AA3F5"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="80,235,0,0" VerticalAlignment="Top" Width="300" Height="60" FontSize="20" >
             <PasswordBox.Resources>
                 <Style x:Key="{x:Type PasswordBox}" TargetType="{x:Type PasswordBox}">
@@ -34,25 +34,25 @@
         <Border  BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="60" Margin="295,235,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="6.692,0.083" >
             <Border.Background>
 
-                <ImageBrush ImageSource="D:\Studia\ДипломнаяРабота\ДипломнаяРабота\image\пароль2.png"/>
+                <ImageBrush ImageSource="image/password.png"/>
             </Border.Background>
         </Border>
-        <Border BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="60" Margin="300,144,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.538,0">
+        <Border BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="60" Margin="300,148,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.538,0">
             <Border.Background>
 
-                <ImageBrush ImageSource="D:\Studia\ДипломнаяРабота\ДипломнаяРабота\image\логин.png"/>
+                <ImageBrush ImageSource="image/login.png"/>
             </Border.Background>
         </Border>
         <Button x:Name="ForgotYourPassword" Content="Забыли пароль" HorizontalAlignment="Left" Margin="160,314,0,0" VerticalAlignment="Top" Width="146" Background="Transparent"  Height="38" FontSize="20" Click="ForgotYourPassword_Click" RenderTransformOrigin="0.5,0.5" BorderBrush="Transparent" Foreground="Black"/>
         <Button x:Name="FirstEntry"  Content="Первый вход" HorizontalAlignment="Left" Margin="160,352,0,0" VerticalAlignment="Top" Width="146" Background="Transparent"  Height="38" FontSize="20" Click="FirstEntry_Click" RenderTransformOrigin="0.5,0.5" BorderBrush="Transparent" Foreground="Black"/>
-        <TextBox x:Name="Login"  BorderThickness="3,3,3,3" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  TextWrapping="Wrap" Width="300" Margin="80,146,0,358" FontSize="20" BorderBrush="#FF8AA3F5" HorizontalAlignment="Left">
+        <TextBox x:Name="Login"  BorderThickness="3,3,3,3" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  TextWrapping="Wrap" Width="300" Margin="80,146,0,0" FontSize="20" BorderBrush="#FF8AA3F5" HorizontalAlignment="Left" Height="65" VerticalAlignment="Top">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="Enter" Content="Вход" Margin="80,445,62,0" VerticalAlignment="Top"  Height="60"  FontSize="30" Click="Enter_Click" BorderBrush="#FF8AA3F5" Background="#FF8AA3F5">
+        <Button x:Name="Enter" Content="Вход" Margin="80,445,0,0"  FontSize="30" Click="Enter_Click" BorderBrush="#FF8AA3F5" Background="#FF8AA3F5" HorizontalAlignment="Left" Width="300" Height="60" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>

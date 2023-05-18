@@ -21,6 +21,7 @@ namespace ДипломнаяРабота
     public partial class WindowNavigation : Window
     {
         private readonly User _user;
+        MainWindow mainWindow = new MainWindow();
         public WindowNavigation(User user)
         {
             _user = user;
@@ -34,15 +35,10 @@ namespace ДипломнаяРабота
             {
                 Frame.Navigate(new Administrator(ДипломнаяРабота.User.Administrator));
             }*/
-            Uri iconUri = new Uri("D://Studia//ДипломнаяРабота//ДипломнаяРабота//Bitmap1.bmp", UriKind.RelativeOrAbsolute);
-            this.Icon = BitmapFrame.Create(iconUri);
-
+             
+           
         }
-
-        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
+       
 
         
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -108,6 +104,11 @@ namespace ДипломнаяРабота
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
 
         }

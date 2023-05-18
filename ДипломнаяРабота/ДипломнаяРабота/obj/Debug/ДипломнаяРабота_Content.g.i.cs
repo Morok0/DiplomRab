@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bitmap1.bmp")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("helptemplates/documenttoprint.docx")]
 
 

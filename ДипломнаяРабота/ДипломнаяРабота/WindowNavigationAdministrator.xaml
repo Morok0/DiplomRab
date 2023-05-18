@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ДипломнаяРабота"
         mc:Ignorable="d"
-         Height="850" Width="1600" WindowStartupLocation="CenterScreen"   >
+         Height="850" Width="1600" WindowStartupLocation="CenterScreen"  Icon="image/Bitmap.bmp" >
     <Grid Margin="5,5,5,5">
         <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Background="White" Navigated="Frame_Navigated" Source="{Binding}" Margin="0,41,0,0"/>
         <Menu x:Name="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="150" Background="#FF83E9F9">

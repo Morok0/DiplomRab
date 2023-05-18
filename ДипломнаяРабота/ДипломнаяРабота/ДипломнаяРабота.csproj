@@ -35,8 +35,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Access.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access.Dao, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Access.Dao.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Visio.WorkflowAuthoring, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Visio.WorkflowAuthoring.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -96,6 +116,12 @@
     </Compile>
     <Compile Include="Doctor.xaml.cs">
       <DependentUpon>Doctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorExtractOfTheCertificate.xaml.cs">
+      <DependentUpon>DoctorExtractOfTheCertificate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorMedicalHistory.xaml.cs">
+      <DependentUpon>DoctorMedicalHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorReception.xaml.cs">
       <DependentUpon>DoctorReception.xaml</DependentUpon>
@@ -169,6 +195,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Doctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorExtractOfTheCertificate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorMedicalHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +292,12 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <AdditionalFiles Include="HelpTemplates\Справка_086у.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AdditionalFiles>
+    <AdditionalFiles Include="HelpTemplates\Document Template1.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AdditionalFiles>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -282,11 +322,17 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Bitmap1.bmp" />
+    <Resource Include="image\Bitmap.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="image\password.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="HelpTemplates\" />
-    <Folder Include="image\" />
+    <Resource Include="image\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\Fon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,8 +25,7 @@ namespace ДипломнаяРабота
             _user = user;
             InitializeComponent();
             FrameDoctor.Navigate(new Doctor(User.Doctor));
-            Uri iconUri = new Uri("D://Studia//ДипломнаяРабота//ДипломнаяРабота//Bitmap1.bmp", UriKind.RelativeOrAbsolute);
-            this.Icon = BitmapFrame.Create(iconUri);
+           
         }
 
         private void Click_Main(object sender, RoutedEventArgs e)
@@ -68,12 +67,12 @@ namespace ДипломнаяРабота
         }
         private void Click_MedicalHistory(object sender, RoutedEventArgs e)
         {
-
+            FrameDoctor.Navigate(new DoctorMedicalHistory(User.Doctor));
         }
 
         private void Click_ExtractOfTheCertificate(object sender, RoutedEventArgs e)
         {
-
+            FrameDoctor.Navigate(new DoctorExtractOfTheCertificate(User.Doctor));
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

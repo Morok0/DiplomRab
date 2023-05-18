@@ -25,8 +25,7 @@ namespace ДипломнаяРабота
             _user = user;
             InitializeComponent();
             FrameRegistrar.Navigate(new RegistrarAddendumPatient(User.Registrar));
-            Uri iconUri = new Uri("D://Studia//ДипломнаяРабота//ДипломнаяРабота//Bitmap1.bmp", UriKind.RelativeOrAbsolute);
-            this.Icon = BitmapFrame.Create(iconUri);
+            
            
         }
 
