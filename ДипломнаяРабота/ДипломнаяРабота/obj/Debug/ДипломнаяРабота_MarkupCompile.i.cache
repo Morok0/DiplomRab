@@ -16,5 +16,5 @@ D:\Studia\ДипломнаяРабота\ДипломнаяРабота\App.xaml
 26-614027258
 AdminAddendumDepartment.xaml;AdminAddendumProfessions.xaml;AdminAddendumUsers.xaml;AdminDistribution.xaml;AdminInformationAboutEmployees.xaml;Administrator.xaml;Doctor.xaml;DoctorExtractOfTheCertificate.xaml;DoctorMedicalHistory.xaml;DoctorReception.xaml;DoctorWorkSchedule.xaml;EntryForm.xaml;MainWindow.xaml;PageFirstEntry.xaml;Registrar.xaml;RegistrarAddendumPatient.xaml;RegistrarMakeAnAppointment.xaml;RegistrarVerification.xaml;RegistrarVerificationDoctor.xaml;WindowNavigateFirstEntry.xaml;WindowNavigationAdministrator.xaml;WindowNavigationDoctor.xaml;WindowNavigationRegistrar.xaml;
 
-False
+True
 

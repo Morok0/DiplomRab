@@ -64,17 +64,8 @@ public partial class MainWindow : Window
                 }
             }
             catch { }
-            
-
-           
-
-               
-                
-            
-
-
-
-           
+            AutomaticRemovalOfPatients();
+        
         }
        
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -165,5 +156,62 @@ public partial class MainWindow : Window
         {
 
         }
+        //Счётчик для автоматического удаления данных из таблицы пациента по прошествии определённого кол-во времени
+        private void AutomaticRemovalOfPatients()
+        {
+            SqlConnection conn = new SqlConnection(sconnect);
+            SqlCommand cmdd = new SqlCommand("SELECT MAX(Дата) AS Дата,  НомерПациент  FROM ЗаписьНаПриём  GROUP BY НомерПациент", conn);
+            conn.Open();
+            SqlDataReader drr = cmdd.ExecuteReader();
+            DateTime maxDate = DateTime.MinValue;
+           
+            while (drr.Read())
+            {
+
+                    string ID = Convert.ToString(drr["НомерПациент"]);
+                    DateTime date = (DateTime)drr["Дата"];
+                    if (date > maxDate)
+                    {
+                        maxDate = date;
+                        
+                    }
+                DateTime myDate = maxDate;
+                DateTime otherDate = DateTime.Now;
+                TimeSpan bufDate = otherDate - myDate;
+               
+                if (bufDate.TotalDays>90)
+                {
+                    //удаление ПриёмВрача 
+                    SqlConnection conP = new SqlConnection(sconnect);
+                    SqlCommand cmdP = new SqlCommand("Delete From ПриёмВрача WHERE НомерПациента=@ID ", conP);
+                    conP.Open();
+                    cmdP.Parameters.Add(new SqlParameter("@id", ID));
+                    cmdP.ExecuteNonQuery();
+                    //удаление ЗаписьНаПриём
+                    SqlConnection conO = new SqlConnection(sconnect);
+                    SqlCommand cmdO = new SqlCommand("Delete From ЗаписьНаПриём WHERE НомерПациент=@ID ", conO);
+                    conO.Open();
+                    cmdO.Parameters.Add(new SqlParameter("@id", ID));
+                    cmdO.ExecuteNonQuery();
+                    //удаление истории болезни
+                    SqlConnection conI = new SqlConnection(sconnect);
+                    SqlCommand cmdI = new SqlCommand("Delete From ИсторияБолезни WHERE НомерПациента=@ID ", conI);
+                    conI.Open();
+                    cmdI.Parameters.Add(new SqlParameter("@id", ID));
+                    cmdI.ExecuteNonQuery();
+                    //удаление пациента
+                    SqlConnection con = new SqlConnection(sconnect);
+                    SqlCommand cmd = new SqlCommand("Delete From Пациент WHERE НомерПациента=@ID ", con);
+                    con.Open(); 
+                    cmd.Parameters.Add(new SqlParameter("@id", ID));
+                    cmd.ExecuteNonQuery();
+                    
+                }
+            }
+            drr.Close();
+            
+          
+        }
+
     }
 }

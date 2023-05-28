@@ -12,7 +12,7 @@
         <CollectionViewSource x:Key="пациентViewSource" Source="{Binding Пациент, Source={StaticResource дипломDataSet}}"/>
     </Window.Resources>
     <Grid Margin="5,5,5,5" DataContext="{StaticResource пациентViewSource}">
-        <Frame x:Name="FrameRegistrar" NavigationUIVisibility="Hidden" Background="White" Margin="0,40,0,0"/>
+        <Frame x:Name="FrameRegistrar" NavigationUIVisibility="Hidden" Background="#FFD8F1EE" Margin="0,40,0,0"/>
         <Menu x:Name="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="150" Background="#FF83E9F9">
             <MenuItem  FontSize="22"  Height="40" Width="150" Click="MenuItem_Click">
                 <MenuItem.Header>

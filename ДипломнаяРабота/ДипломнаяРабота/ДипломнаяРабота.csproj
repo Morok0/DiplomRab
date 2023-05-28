@@ -295,7 +295,7 @@
     <AdditionalFiles Include="HelpTemplates\Справка_086у.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
-    <AdditionalFiles Include="HelpTemplates\Document Template1.docx">
+    <AdditionalFiles Include="HelpTemplates\Шаблон.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AdditionalFiles>
     <None Include="packages.config" />

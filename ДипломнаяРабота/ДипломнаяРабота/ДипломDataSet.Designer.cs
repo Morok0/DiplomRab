@@ -2071,11 +2071,11 @@ namespace ДипломнаяРабота {
             
             private global::System.Data.DataColumn columnЛечение;
             
-            private global::System.Data.DataColumn columnНачалоЛечения;
-            
-            private global::System.Data.DataColumn columnКонецЛечения;
-            
             private global::System.Data.DataColumn columnНомерПациента;
+            
+            private global::System.Data.DataColumn columnДата;
+            
+            private global::System.Data.DataColumn columnУслугаИлиПроцедура;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2136,25 +2136,25 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn НачалоЛеченияColumn {
-                get {
-                    return this.columnНачалоЛечения;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn КонецЛеченияColumn {
-                get {
-                    return this.columnКонецЛечения;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn НомерПациентаColumn {
                 get {
                     return this.columnНомерПациента;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ДатаColumn {
+                get {
+                    return this.columnДата;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn УслугаИлиПроцедураColumn {
+                get {
+                    return this.columnУслугаИлиПроцедура;
                 }
             }
             
@@ -2195,17 +2195,17 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ИсторияБолезниRow AddИсторияБолезниRow(int НомерИсторииБолезни, string Диагноз, string Лечение, System.DateTime НачалоЛечения, System.DateTime КонецЛечения, ПациентRow parentПациентRowByFK_ИсторияБолезни_Пациент) {
+            public ИсторияБолезниRow AddИсторияБолезниRow(int НомерИсторииБолезни, string Диагноз, string Лечение, ПациентRow parentПациентRowByFK_ИсторияБолезни_Пациент, System.DateTime Дата, string УслугаИлиПроцедура) {
                 ИсторияБолезниRow rowИсторияБолезниRow = ((ИсторияБолезниRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         НомерИсторииБолезни,
                         Диагноз,
                         Лечение,
-                        НачалоЛечения,
-                        КонецЛечения,
-                        null};
+                        null,
+                        Дата,
+                        УслугаИлиПроцедура};
                 if ((parentПациентRowByFK_ИсторияБолезни_Пациент != null)) {
-                    columnValuesArray[5] = parentПациентRowByFK_ИсторияБолезни_Пациент[0];
+                    columnValuesArray[3] = parentПациентRowByFK_ИсторияБолезни_Пациент[0];
                 }
                 rowИсторияБолезниRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowИсторияБолезниRow);
@@ -2239,9 +2239,9 @@ namespace ДипломнаяРабота {
                 this.columnНомерИсторииБолезни = base.Columns["НомерИсторииБолезни"];
                 this.columnДиагноз = base.Columns["Диагноз"];
                 this.columnЛечение = base.Columns["Лечение"];
-                this.columnНачалоЛечения = base.Columns["НачалоЛечения"];
-                this.columnКонецЛечения = base.Columns["КонецЛечения"];
                 this.columnНомерПациента = base.Columns["НомерПациента"];
+                this.columnДата = base.Columns["Дата"];
+                this.columnУслугаИлиПроцедура = base.Columns["УслугаИлиПроцедура"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2253,12 +2253,12 @@ namespace ДипломнаяРабота {
                 base.Columns.Add(this.columnДиагноз);
                 this.columnЛечение = new global::System.Data.DataColumn("Лечение", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЛечение);
-                this.columnНачалоЛечения = new global::System.Data.DataColumn("НачалоЛечения", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnНачалоЛечения);
-                this.columnКонецЛечения = new global::System.Data.DataColumn("КонецЛечения", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnКонецЛечения);
                 this.columnНомерПациента = new global::System.Data.DataColumn("НомерПациента", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНомерПациента);
+                this.columnДата = new global::System.Data.DataColumn("Дата", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата);
+                this.columnУслугаИлиПроцедура = new global::System.Data.DataColumn("УслугаИлиПроцедура", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnУслугаИлиПроцедура);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомерИсторииБолезни}, true));
                 this.columnНомерИсторииБолезни.AllowDBNull = false;
@@ -2267,6 +2267,8 @@ namespace ДипломнаяРабота {
                 this.columnДиагноз.MaxLength = 300;
                 this.columnЛечение.MaxLength = 3000;
                 this.columnНомерПациента.AllowDBNull = false;
+                this.columnДата.AllowDBNull = false;
+                this.columnУслугаИлиПроцедура.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3480,6 +3482,8 @@ namespace ДипломнаяРабота {
             
             private global::System.Data.DataColumn columnНомерЗаписи;
             
+            private global::System.Data.DataColumn columnУслугаИлиПроцедура;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ПриёмВрачаDataTable() {
@@ -3579,6 +3583,14 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn УслугаИлиПроцедураColumn {
+                get {
+                    return this.columnУслугаИлиПроцедура;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3614,7 +3626,7 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ПриёмВрачаRow AddПриёмВрачаRow(int НомерПриёма, System.TimeSpan НачалоПриёма, System.TimeSpan КонецПриёма, string Диагноз, string Лечение, СотрудникRow parentСотрудникRowByFK_ПриёмВрача_Сотрудник, ПациентRow parentПациентRowByFK_ПриёмВрача_Пациент, ЗаписьНаПриёмRow parentЗаписьНаПриёмRowByFK_ПриёмВрача_ЗаписьНаПриём) {
+            public ПриёмВрачаRow AddПриёмВрачаRow(int НомерПриёма, System.TimeSpan НачалоПриёма, System.TimeSpan КонецПриёма, string Диагноз, string Лечение, СотрудникRow parentСотрудникRowByFK_ПриёмВрача_Сотрудник, ПациентRow parentПациентRowByFK_ПриёмВрача_Пациент, ЗаписьНаПриёмRow parentЗаписьНаПриёмRowByFK_ПриёмВрача_ЗаписьНаПриём, string УслугаИлиПроцедура) {
                 ПриёмВрачаRow rowПриёмВрачаRow = ((ПриёмВрачаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         НомерПриёма,
@@ -3624,7 +3636,8 @@ namespace ДипломнаяРабота {
                         Лечение,
                         null,
                         null,
-                        null};
+                        null,
+                        УслугаИлиПроцедура};
                 if ((parentСотрудникRowByFK_ПриёмВрача_Сотрудник != null)) {
                     columnValuesArray[5] = parentСотрудникRowByFK_ПриёмВрача_Сотрудник[0];
                 }
@@ -3671,6 +3684,7 @@ namespace ДипломнаяРабота {
                 this.columnТабельныйНомер = base.Columns["ТабельныйНомер"];
                 this.columnНомерПациента = base.Columns["НомерПациента"];
                 this.columnНомерЗаписи = base.Columns["НомерЗаписи"];
+                this.columnУслугаИлиПроцедура = base.Columns["УслугаИлиПроцедура"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3692,6 +3706,8 @@ namespace ДипломнаяРабота {
                 base.Columns.Add(this.columnНомерПациента);
                 this.columnНомерЗаписи = new global::System.Data.DataColumn("НомерЗаписи", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНомерЗаписи);
+                this.columnУслугаИлиПроцедура = new global::System.Data.DataColumn("УслугаИлиПроцедура", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnУслугаИлиПроцедура);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомерПриёма}, true));
                 this.columnНомерПриёма.AllowDBNull = false;
@@ -3703,6 +3719,7 @@ namespace ДипломнаяРабота {
                 this.columnТабельныйНомер.AllowDBNull = false;
                 this.columnНомерПациента.AllowDBNull = false;
                 this.columnНомерЗаписи.AllowDBNull = false;
+                this.columnУслугаИлиПроцедура.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5837,44 +5854,40 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime НачалоЛечения {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableИсторияБолезни.НачалоЛеченияColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'НачалоЛечения\' в таблице \'ИсторияБолезни\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableИсторияБолезни.НачалоЛеченияColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime КонецЛечения {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableИсторияБолезни.КонецЛеченияColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КонецЛечения\' в таблице \'ИсторияБолезни\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableИсторияБолезни.КонецЛеченияColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int НомерПациента {
                 get {
                     return ((int)(this[this.tableИсторияБолезни.НомерПациентаColumn]));
                 }
                 set {
                     this[this.tableИсторияБолезни.НомерПациентаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Дата {
+                get {
+                    return ((global::System.DateTime)(this[this.tableИсторияБолезни.ДатаColumn]));
+                }
+                set {
+                    this[this.tableИсторияБолезни.ДатаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string УслугаИлиПроцедура {
+                get {
+                    try {
+                        return ((string)(this[this.tableИсторияБолезни.УслугаИлиПроцедураColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'УслугаИлиПроцедура\' в таблице \'ИсторияБолезни\' равно DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableИсторияБолезни.УслугаИлиПроцедураColumn] = value;
                 }
             }
             
@@ -5903,26 +5916,14 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsНачалоЛеченияNull() {
-                return this.IsNull(this.tableИсторияБолезни.НачалоЛеченияColumn);
+            public bool IsУслугаИлиПроцедураNull() {
+                return this.IsNull(this.tableИсторияБолезни.УслугаИлиПроцедураColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetНачалоЛеченияNull() {
-                this[this.tableИсторияБолезни.НачалоЛеченияColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsКонецЛеченияNull() {
-                return this.IsNull(this.tableИсторияБолезни.КонецЛеченияColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetКонецЛеченияNull() {
-                this[this.tableИсторияБолезни.КонецЛеченияColumn] = global::System.Convert.DBNull;
+            public void SetУслугаИлиПроцедураNull() {
+                this[this.tableИсторияБолезни.УслугаИлиПроцедураColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6462,6 +6463,22 @@ namespace ДипломнаяРабота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string УслугаИлиПроцедура {
+                get {
+                    try {
+                        return ((string)(this[this.tableПриёмВрача.УслугаИлиПроцедураColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'УслугаИлиПроцедура\' в таблице \'ПриёмВрача\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПриёмВрача.УслугаИлиПроцедураColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ЗаписьНаПриёмRow ЗаписьНаПриёмRow {
                 get {
                     return ((ЗаписьНаПриёмRow)(this.GetParentRow(this.Table.ParentRelations["FK_ПриёмВрача_ЗаписьНаПриём"])));
@@ -6515,6 +6532,18 @@ namespace ДипломнаяРабота {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetЛечениеNull() {
                 this[this.tableПриёмВрача.ЛечениеColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsУслугаИлиПроцедураNull() {
+                return this.IsNull(this.tableПриёмВрача.УслугаИлиПроцедураColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetУслугаИлиПроцедураNull() {
+                this[this.tableПриёмВрача.УслугаИлиПроцедураColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8981,56 +9010,53 @@ SELECT НомерЗаписи, Дата, Время, НомерПациент, �
             tableMapping.ColumnMappings.Add("НомерИсторииБолезни", "НомерИсторииБолезни");
             tableMapping.ColumnMappings.Add("Диагноз", "Диагноз");
             tableMapping.ColumnMappings.Add("Лечение", "Лечение");
-            tableMapping.ColumnMappings.Add("НачалоЛечения", "НачалоЛечения");
-            tableMapping.ColumnMappings.Add("КонецЛечения", "КонецЛечения");
             tableMapping.ColumnMappings.Add("НомерПациента", "НомерПациента");
+            tableMapping.ColumnMappings.Add("Дата", "Дата");
+            tableMapping.ColumnMappings.Add("УслугаИлиПроцедура", "УслугаИлиПроцедура");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ИсторияБолезни] WHERE (([НомерИсторииБолезни] = @Original_НомерИсторииБолезни) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ((@IsNull_НачалоЛечения = 1 AND [НачалоЛечения] IS NULL) OR ([НачалоЛечения] = @Original_НачалоЛечения)) AND ((@IsNull_КонецЛечения = 1 AND [КонецЛечения] IS NULL) OR ([КонецЛечения] = @Original_КонецЛечения)) AND ([НомерПациента] = @Original_НомерПациента))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ИсторияБолезни] WHERE (([НомерИсторииБолезни] = @Original_НомерИсторииБолезни) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([НомерПациента] = @Original_НомерПациента) AND ([Дата] = @Original_Дата) AND ((@IsNull_УслугаИлиПроцедура = 1 AND [УслугаИлиПроцедура] IS NULL) OR ([УслугаИлиПроцедура] = @Original_УслугаИлиПроцедура)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерИсторииБолезни", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерИсторииБолезни", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Диагноз", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Диагноз", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Лечение", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Лечение", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_НачалоЛечения", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НачалоЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КонецЛечения", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КонецЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Дата", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Дата", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_УслугаИлиПроцедура", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_УслугаИлиПроцедура", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ИсторияБолезни] ([НомерИсторииБолезни], [Диагноз], [Лечение], [НачалоЛечения], [КонецЛечения], [НомерПациента]) VALUES (@НомерИсторииБолезни, @Диагноз, @Лечение, @НачалоЛечения, @КонецЛечения, @НомерПациента);
-SELECT НомерИсторииБолезни, Диагноз, Лечение, НачалоЛечения, КонецЛечения, НомерПациента FROM ИсторияБолезни WHERE (НомерИсторииБолезни = @НомерИсторииБолезни)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ИсторияБолезни] ([Диагноз], [Лечение], [НомерПациента], [Дата], [УслугаИлиПроцедура]) VALUES (@Диагноз, @Лечение, @НомерПациента, @Дата, @УслугаИлиПроцедура);
+SELECT НомерИсторииБолезни, Диагноз, Лечение, НомерПациента, Дата, УслугаИлиПроцедура FROM ИсторияБолезни WHERE (НомерИсторииБолезни = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерИсторииБолезни", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерИсторииБолезни", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Диагноз", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Лечение", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НачалоЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КонецЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Дата", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Дата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@УслугаИлиПроцедура", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [ИсторияБолезни] SET [НомерИсторииБолезни] = @НомерИсторииБолезни, [Диагноз] = @Диагноз, [Лечение] = @Лечение, [НачалоЛечения] = @НачалоЛечения, [КонецЛечения] = @КонецЛечения, [НомерПациента] = @НомерПациента WHERE (([НомерИсторииБолезни] = @Original_НомерИсторииБолезни) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ((@IsNull_НачалоЛечения = 1 AND [НачалоЛечения] IS NULL) OR ([НачалоЛечения] = @Original_НачалоЛечения)) AND ((@IsNull_КонецЛечения = 1 AND [КонецЛечения] IS NULL) OR ([КонецЛечения] = @Original_КонецЛечения)) AND ([НомерПациента] = @Original_НомерПациента));
-SELECT НомерИсторииБолезни, Диагноз, Лечение, НачалоЛечения, КонецЛечения, НомерПациента FROM ИсторияБолезни WHERE (НомерИсторииБолезни = @НомерИсторииБолезни)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ИсторияБолезни] SET [Диагноз] = @Диагноз, [Лечение] = @Лечение, [НомерПациента] = @НомерПациента, [Дата] = @Дата, [УслугаИлиПроцедура] = @УслугаИлиПроцедура WHERE (([НомерИсторииБолезни] = @Original_НомерИсторииБолезни) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([НомерПациента] = @Original_НомерПациента) AND ([Дата] = @Original_Дата) AND ((@IsNull_УслугаИлиПроцедура = 1 AND [УслугаИлиПроцедура] IS NULL) OR ([УслугаИлиПроцедура] = @Original_УслугаИлиПроцедура)));
+SELECT НомерИсторииБолезни, Диагноз, Лечение, НомерПациента, Дата, УслугаИлиПроцедура FROM ИсторияБолезни WHERE (НомерИсторииБолезни = @НомерИсторииБолезни)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерИсторииБолезни", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерИсторииБолезни", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Диагноз", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Лечение", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НачалоЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КонецЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Дата", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Дата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@УслугаИлиПроцедура", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерИсторииБолезни", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерИсторииБолезни", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Диагноз", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Диагноз", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Лечение", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Лечение", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Лечение", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_НачалоЛечения", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НачалоЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоЛечения", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КонецЛечения", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КонецЛечения", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецЛечения", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Дата", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Дата", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_УслугаИлиПроцедура", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_УслугаИлиПроцедура", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерИсторииБолезни", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "НомерИсторииБолезни", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9046,8 +9072,8 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT НомерИсторииБолезни, Диагноз, Лечение, НачалоЛечения, КонецЛечения, НомерП" +
-                "ациента FROM ИсторияБолезни";
+            this._commandCollection[0].CommandText = "SELECT НомерИсторииБолезни, Диагноз, Лечение, НомерПациента, Дата, УслугаИлиПроце" +
+                "дура FROM ИсторияБолезни";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9108,7 +9134,7 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, global::System.Nullable<global::System.DateTime> Original_НачалоЛечения, global::System.Nullable<global::System.DateTime> Original_КонецЛечения, int Original_НомерПациента) {
+        public virtual int Delete(int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, int Original_НомерПациента, System.DateTime Original_Дата, string Original_УслугаИлиПроцедура) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерИсторииБолезни));
             if ((Original_Диагноз == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -9126,23 +9152,16 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Лечение));
             }
-            if ((Original_НачалоЛечения.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_НачалоЛечения.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_КонецЛечения.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_КонецЛечения.Value));
-            }
-            else {
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_НомерПациента));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Дата));
+            if ((Original_УслугаИлиПроцедура == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_НомерПациента));
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_УслугаИлиПроцедура));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9163,33 +9182,27 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int НомерИсторииБолезни, string Диагноз, string Лечение, global::System.Nullable<global::System.DateTime> НачалоЛечения, global::System.Nullable<global::System.DateTime> КонецЛечения, int НомерПациента) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(НомерИсторииБолезни));
+        public virtual int Insert(string Диагноз, string Лечение, int НомерПациента, System.DateTime Дата, string УслугаИлиПроцедура) {
             if ((Диагноз == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Диагноз));
+            }
+            if ((Лечение == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Диагноз));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Лечение));
             }
-            if ((Лечение == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Лечение));
-            }
-            if ((НачалоЛечения.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(НачалоЛечения.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((КонецЛечения.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(КонецЛечения.Value));
-            }
-            else {
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(НомерПациента));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Дата));
+            if ((УслугаИлиПроцедура == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(НомерПациента));
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(УслугаИлиПроцедура));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9210,67 +9223,55 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int НомерИсторииБолезни, string Диагноз, string Лечение, global::System.Nullable<global::System.DateTime> НачалоЛечения, global::System.Nullable<global::System.DateTime> КонецЛечения, int НомерПациента, int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, global::System.Nullable<global::System.DateTime> Original_НачалоЛечения, global::System.Nullable<global::System.DateTime> Original_КонецЛечения, int Original_НомерПациента) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(НомерИсторииБолезни));
+        public virtual int Update(string Диагноз, string Лечение, int НомерПациента, System.DateTime Дата, string УслугаИлиПроцедура, int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, int Original_НомерПациента, System.DateTime Original_Дата, string Original_УслугаИлиПроцедура, int НомерИсторииБолезни) {
             if ((Диагноз == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Диагноз));
+            }
+            if ((Лечение == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Диагноз));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Лечение));
             }
-            if ((Лечение == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Лечение));
-            }
-            if ((НачалоЛечения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(НачалоЛечения.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((КонецЛечения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(КонецЛечения.Value));
-            }
-            else {
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(НомерПациента));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Дата));
+            if ((УслугаИлиПроцедура == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(НомерПациента));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_НомерИсторииБолезни));
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(УслугаИлиПроцедура));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_НомерИсторииБолезни));
             if ((Original_Диагноз == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Диагноз));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Диагноз));
             }
             if ((Original_Лечение == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Лечение));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Лечение));
             }
-            if ((Original_НачалоЛечения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_НачалоЛечения.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_КонецЛечения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_КонецЛечения.Value));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_НомерПациента));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Дата));
+            if ((Original_УслугаИлиПроцедура == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_УслугаИлиПроцедура));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_НомерПациента));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(НомерИсторииБолезни));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9291,8 +9292,8 @@ SELECT НомерИсторииБолезни, Диагноз, Лечение, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Диагноз, string Лечение, global::System.Nullable<global::System.DateTime> НачалоЛечения, global::System.Nullable<global::System.DateTime> КонецЛечения, int НомерПациента, int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, global::System.Nullable<global::System.DateTime> Original_НачалоЛечения, global::System.Nullable<global::System.DateTime> Original_КонецЛечения, int Original_НомерПациента) {
-            return this.Update(Original_НомерИсторииБолезни, Диагноз, Лечение, НачалоЛечения, КонецЛечения, НомерПациента, Original_НомерИсторииБолезни, Original_Диагноз, Original_Лечение, Original_НачалоЛечения, Original_КонецЛечения, Original_НомерПациента);
+        public virtual int Update(string Диагноз, string Лечение, int НомерПациента, System.DateTime Дата, string УслугаИлиПроцедура, int Original_НомерИсторииБолезни, string Original_Диагноз, string Original_Лечение, int Original_НомерПациента, System.DateTime Original_Дата, string Original_УслугаИлиПроцедура) {
+            return this.Update(Диагноз, Лечение, НомерПациента, Дата, УслугаИлиПроцедура, Original_НомерИсторииБолезни, Original_Диагноз, Original_Лечение, Original_НомерПациента, Original_Дата, Original_УслугаИлиПроцедура, Original_НомерИсторииБолезни);
         }
     }
     
@@ -10871,10 +10872,11 @@ SELECT НомерПациента, Фамилия, Имя, Отчество, П�
             tableMapping.ColumnMappings.Add("ТабельныйНомер", "ТабельныйНомер");
             tableMapping.ColumnMappings.Add("НомерПациента", "НомерПациента");
             tableMapping.ColumnMappings.Add("НомерЗаписи", "НомерЗаписи");
+            tableMapping.ColumnMappings.Add("УслугаИлиПроцедура", "УслугаИлиПроцедура");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ПриёмВрача] WHERE (([НомерПриёма] = @Original_НомерПриёма) AND ([НачалоПриёма] = @Original_НачалоПриёма) AND ([КонецПриёма] = @Original_КонецПриёма) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([ТабельныйНомер] = @Original_ТабельныйНомер) AND ([НомерПациента] = @Original_НомерПациента) AND ([НомерЗаписи] = @Original_НомерЗаписи))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ПриёмВрача] WHERE (([НомерПриёма] = @Original_НомерПриёма) AND ([НачалоПриёма] = @Original_НачалоПриёма) AND ([КонецПриёма] = @Original_КонецПриёма) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([ТабельныйНомер] = @Original_ТабельныйНомер) AND ([НомерПациента] = @Original_НомерПациента) AND ([НомерЗаписи] = @Original_НомерЗаписи) AND ((@IsNull_УслугаИлиПроцедура = 1 AND [УслугаИлиПроцедура] IS NULL) OR ([УслугаИлиПроцедура] = @Original_УслугаИлиПроцедура)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПриёма", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПриёма", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НачалоПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоПриёма", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10886,12 +10888,13 @@ SELECT НомерПациента, Фамилия, Имя, Отчество, П�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ТабельныйНомер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ТабельныйНомер", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерЗаписи", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерЗаписи", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_УслугаИлиПроцедура", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_УслугаИлиПроцедура", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ПриёмВрача] ([НомерПриёма], [НачалоПриёма], [КонецПриёма], [Диагноз], [Лечение], [ТабельныйНомер], [НомерПациента], [НомерЗаписи]) VALUES (@НомерПриёма, @НачалоПриёма, @КонецПриёма, @Диагноз, @Лечение, @ТабельныйНомер, @НомерПациента, @НомерЗаписи);
-SELECT НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи FROM ПриёмВрача WHERE (НомерПриёма = @НомерПриёма)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ПриёмВрача] ([НачалоПриёма], [КонецПриёма], [Диагноз], [Лечение], [ТабельныйНомер], [НомерПациента], [НомерЗаписи], [УслугаИлиПроцедура]) VALUES (@НачалоПриёма, @КонецПриёма, @Диагноз, @Лечение, @ТабельныйНомер, @НомерПациента, @НомерЗаписи, @УслугаИлиПроцедура);
+SELECT НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи, УслугаИлиПроцедура FROM ПриёмВрача WHERE (НомерПриёма = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПриёма", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НачалоПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КонецПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Диагноз", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10899,12 +10902,12 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ТабельныйНомер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ТабельныйНомер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерЗаписи", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерЗаписи", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@УслугаИлиПроцедура", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ПриёмВрача] SET [НомерПриёма] = @НомерПриёма, [НачалоПриёма] = @НачалоПриёма, [КонецПриёма] = @КонецПриёма, [Диагноз] = @Диагноз, [Лечение] = @Лечение, [ТабельныйНомер] = @ТабельныйНомер, [НомерПациента] = @НомерПациента, [НомерЗаписи] = @НомерЗаписи WHERE (([НомерПриёма] = @Original_НомерПриёма) AND ([НачалоПриёма] = @Original_НачалоПриёма) AND ([КонецПриёма] = @Original_КонецПриёма) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([ТабельныйНомер] = @Original_ТабельныйНомер) AND ([НомерПациента] = @Original_НомерПациента) AND ([НомерЗаписи] = @Original_НомерЗаписи));
-SELECT НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи FROM ПриёмВрача WHERE (НомерПриёма = @НомерПриёма)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ПриёмВрача] SET [НачалоПриёма] = @НачалоПриёма, [КонецПриёма] = @КонецПриёма, [Диагноз] = @Диагноз, [Лечение] = @Лечение, [ТабельныйНомер] = @ТабельныйНомер, [НомерПациента] = @НомерПациента, [НомерЗаписи] = @НомерЗаписи, [УслугаИлиПроцедура] = @УслугаИлиПроцедура WHERE (([НомерПриёма] = @Original_НомерПриёма) AND ([НачалоПриёма] = @Original_НачалоПриёма) AND ([КонецПриёма] = @Original_КонецПриёма) AND ((@IsNull_Диагноз = 1 AND [Диагноз] IS NULL) OR ([Диагноз] = @Original_Диагноз)) AND ((@IsNull_Лечение = 1 AND [Лечение] IS NULL) OR ([Лечение] = @Original_Лечение)) AND ([ТабельныйНомер] = @Original_ТабельныйНомер) AND ([НомерПациента] = @Original_НомерПациента) AND ([НомерЗаписи] = @Original_НомерЗаписи) AND ((@IsNull_УслугаИлиПроцедура = 1 AND [УслугаИлиПроцедура] IS NULL) OR ([УслугаИлиПроцедура] = @Original_УслугаИлиПроцедура)));
+SELECT НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи, УслугаИлиПроцедура FROM ПриёмВрача WHERE (НомерПриёма = @НомерПриёма)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПриёма", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НачалоПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КонецПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Диагноз", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Диагноз", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10912,6 +10915,7 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ТабельныйНомер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ТабельныйНомер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерЗаписи", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерЗаписи", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@УслугаИлиПроцедура", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПриёма", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПриёма", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НачалоПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НачалоПриёма", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КонецПриёма", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КонецПриёма", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10922,6 +10926,9 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ТабельныйНомер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ТабельныйНомер", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерПациента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПациента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерЗаписи", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерЗаписи", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_УслугаИлиПроцедура", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_УслугаИлиПроцедура", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "УслугаИлиПроцедура", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПриёма", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "НомерПриёма", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10938,7 +10945,7 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, " +
-                "НомерПациента, НомерЗаписи FROM dbo.ПриёмВрача";
+                "НомерПациента, НомерЗаписи, УслугаИлиПроцедура FROM ПриёмВрача";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10999,7 +11006,7 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерПриёма, System.TimeSpan Original_НачалоПриёма, System.TimeSpan Original_КонецПриёма, string Original_Диагноз, string Original_Лечение, int Original_ТабельныйНомер, int Original_НомерПациента, int Original_НомерЗаписи) {
+        public virtual int Delete(int Original_НомерПриёма, System.TimeSpan Original_НачалоПриёма, System.TimeSpan Original_КонецПриёма, string Original_Диагноз, string Original_Лечение, int Original_ТабельныйНомер, int Original_НомерПациента, int Original_НомерЗаписи, string Original_УслугаИлиПроцедура) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерПриёма));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.TimeSpan)(Original_НачалоПриёма));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.TimeSpan)(Original_КонецПриёма));
@@ -11022,6 +11029,14 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ТабельныйНомер));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_НомерПациента));
             this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_НомерЗаписи));
+            if ((Original_УслугаИлиПроцедура == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_УслугаИлиПроцедура));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11042,25 +11057,30 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int НомерПриёма, System.TimeSpan НачалоПриёма, System.TimeSpan КонецПриёма, string Диагноз, string Лечение, int ТабельныйНомер, int НомерПациента, int НомерЗаписи) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(НомерПриёма));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(НачалоПриёма));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(КонецПриёма));
+        public virtual int Insert(System.TimeSpan НачалоПриёма, System.TimeSpan КонецПриёма, string Диагноз, string Лечение, int ТабельныйНомер, int НомерПациента, int НомерЗаписи, string УслугаИлиПроцедура) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.TimeSpan)(НачалоПриёма));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(КонецПриёма));
             if ((Диагноз == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Диагноз));
+            }
+            if ((Лечение == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Диагноз));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Лечение));
             }
-            if ((Лечение == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ТабельныйНомер));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(НомерПациента));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(НомерЗаписи));
+            if ((УслугаИлиПроцедура == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Лечение));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(УслугаИлиПроцедура));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ТабельныйНомер));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(НомерПациента));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(НомерЗаписи));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11082,7 +11102,6 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int НомерПриёма, 
                     System.TimeSpan НачалоПриёма, 
                     System.TimeSpan КонецПриёма, 
                     string Диагноз, 
@@ -11090,6 +11109,7 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
                     int ТабельныйНомер, 
                     int НомерПациента, 
                     int НомерЗаписи, 
+                    string УслугаИлиПроцедура, 
                     int Original_НомерПриёма, 
                     System.TimeSpan Original_НачалоПриёма, 
                     System.TimeSpan Original_КонецПриёма, 
@@ -11097,25 +11117,32 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
                     string Original_Лечение, 
                     int Original_ТабельныйНомер, 
                     int Original_НомерПациента, 
-                    int Original_НомерЗаписи) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(НомерПриёма));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(НачалоПриёма));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(КонецПриёма));
+                    int Original_НомерЗаписи, 
+                    string Original_УслугаИлиПроцедура, 
+                    int НомерПриёма) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.TimeSpan)(НачалоПриёма));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(КонецПриёма));
             if ((Диагноз == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Диагноз));
+            }
+            if ((Лечение == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Диагноз));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Лечение));
             }
-            if ((Лечение == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ТабельныйНомер));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(НомерПациента));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(НомерЗаписи));
+            if ((УслугаИлиПроцедура == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Лечение));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(УслугаИлиПроцедура));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ТабельныйНомер));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(НомерПациента));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(НомерЗаписи));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_НомерПриёма));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((System.TimeSpan)(Original_НачалоПриёма));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((System.TimeSpan)(Original_КонецПриёма));
@@ -11138,6 +11165,15 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
             this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_ТабельныйНомер));
             this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_НомерПациента));
             this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_НомерЗаписи));
+            if ((Original_УслугаИлиПроцедура == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_УслугаИлиПроцедура));
+            }
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(НомерПриёма));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11158,8 +11194,25 @@ SELECT НомерПриёма, НачалоПриёма, КонецПриёма,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.TimeSpan НачалоПриёма, System.TimeSpan КонецПриёма, string Диагноз, string Лечение, int ТабельныйНомер, int НомерПациента, int НомерЗаписи, int Original_НомерПриёма, System.TimeSpan Original_НачалоПриёма, System.TimeSpan Original_КонецПриёма, string Original_Диагноз, string Original_Лечение, int Original_ТабельныйНомер, int Original_НомерПациента, int Original_НомерЗаписи) {
-            return this.Update(Original_НомерПриёма, НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи, Original_НомерПриёма, Original_НачалоПриёма, Original_КонецПриёма, Original_Диагноз, Original_Лечение, Original_ТабельныйНомер, Original_НомерПациента, Original_НомерЗаписи);
+        public virtual int Update(
+                    System.TimeSpan НачалоПриёма, 
+                    System.TimeSpan КонецПриёма, 
+                    string Диагноз, 
+                    string Лечение, 
+                    int ТабельныйНомер, 
+                    int НомерПациента, 
+                    int НомерЗаписи, 
+                    string УслугаИлиПроцедура, 
+                    int Original_НомерПриёма, 
+                    System.TimeSpan Original_НачалоПриёма, 
+                    System.TimeSpan Original_КонецПриёма, 
+                    string Original_Диагноз, 
+                    string Original_Лечение, 
+                    int Original_ТабельныйНомер, 
+                    int Original_НомерПациента, 
+                    int Original_НомерЗаписи, 
+                    string Original_УслугаИлиПроцедура) {
+            return this.Update(НачалоПриёма, КонецПриёма, Диагноз, Лечение, ТабельныйНомер, НомерПациента, НомерЗаписи, УслугаИлиПроцедура, Original_НомерПриёма, Original_НачалоПриёма, Original_КонецПриёма, Original_Диагноз, Original_Лечение, Original_ТабельныйНомер, Original_НомерПациента, Original_НомерЗаписи, Original_УслугаИлиПроцедура, Original_НомерПриёма);
         }
     }
     
@@ -13087,7 +13140,7 @@ SELECT ТабельныйНомер, НомерПрофессии, НомерП�
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[14];
+            this._commandCollection = new global::System.Data.IDbCommand[15];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::ДипломнаяРабота.Properties.Settings.Default.ДипломConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.INSERT_ПервыйВход";
@@ -13225,6 +13278,14 @@ SELECT ТабельныйНомер, НомерПрофессии, НомерП�
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НачалоРаботы", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 16, 7, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КонецРаботы", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 16, 7, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Выходной", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).Connection = new global::System.Data.SqlClient.SqlConnection(global::ДипломнаяРабота.Properties.Settings.Default.ДипломConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).CommandText = "dbo.INSERT_ИсторияБолезни";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Диагноз", global::System.Data.SqlDbType.NChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Лечение", global::System.Data.SqlDbType.NChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[14])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерПациента", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13935,6 +13996,46 @@ SELECT ТабельныйНомер, НомерПрофессии, НомерП�
             }
             else {
                 command.Parameters[3].Value = ((string)(Выходной));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int INSERT_ИсторияБолезни(string Диагноз, string Лечение, global::System.Nullable<int> НомерПациента) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[14]));
+            if ((Диагноз == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Диагноз));
+            }
+            if ((Лечение == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Лечение));
+            }
+            if ((НомерПациента.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(НомерПациента.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

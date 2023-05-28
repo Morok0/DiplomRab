@@ -80,7 +80,5 @@ D:\Studia\ДипломнаяРабота\ДипломнаяРабота\obj\Debu
 D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\Microsoft.Office.Interop.Visio.WorkflowAuthoring.dll
 D:\Studia\ДипломнаяРабота\ДипломнаяРабота\obj\Debug\DoctorMedicalHistory.g.cs
 D:\Studia\ДипломнаяРабота\ДипломнаяРабота\obj\Debug\DoctorMedicalHistory.baml
-D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\HelpTemplates\Справка_086у.doc
-D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\HelpTemplates\086у.docx
+D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\HelpTemplates\Справка_086у.docx
 D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\HelpTemplates\Шаблон.docx
-D:\Studia\ДипломнаяРабота\ДипломнаяРабота\bin\Debug\HelpTemplates\Document Template1.docx

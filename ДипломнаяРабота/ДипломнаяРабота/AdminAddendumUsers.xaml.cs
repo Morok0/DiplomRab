@@ -106,17 +106,17 @@ namespace ДипломнаяРабота
                 string sconnect = mainWindow.sconnect;
                 //string bufProfession = combo;
                 string bufAccessRights = AccessRights.Text;
-            
+
                 
-                string FirstName = имяTextBox.Text;
-                string LastName = фамилияTextBox.Text;
-                string MiddleName = отчествоTextBox.Text;
+                string FirstName = имяTextBox.Text.Replace(" ", "");
+                string LastName = фамилияTextBox.Text.Replace(" ", ""); 
+                string MiddleName = отчествоTextBox.Text.Replace(" ", ""); 
                 string Telephone = телефонTextBox.Text;
                 string Passport = паспортTextBox.Text;
                 string Snils = снилсTextBox.Text;
-                string Login = логинTextBox.Text;
-                string Password = парольTextBox.Text;
-            if (FirstName == null )
+                string Login = логинTextBox.Text.Replace(" ", "");
+                string Password = парольTextBox.Text.Replace(" ", "");
+            if (имяTextBox.Text=="" || фамилияTextBox.Text=="" || отчествоTextBox.Text=="" || логинTextBox.Text=="" || парольTextBox.Text=="" )
             {
                 MessageBox.Show("Проверте все ли поля заполнены");
             }
@@ -161,7 +161,7 @@ namespace ДипломнаяРабота
                 
                 int id = (int)row[0];
                 string IdDisplay = Convert.ToString(row["ТабельныйНомер"]);
-                MessageBox.Show(Convert.ToString(id));
+                
                 if (row == null)
                 {
                     имяTextBox.Clear();
@@ -212,11 +212,32 @@ namespace ДипломнаяРабота
                 string IdDelete = Convert.ToString(row["ТабельныйНомер"]);
                 try
                 {
+                    //удаление Профессии
+                    SqlConnection conP = new SqlConnection(sconnect);
+                    SqlCommand cmdP = new SqlCommand("Delete From ПрофессияСотрудник WHERE ТабельныйНомер=@ID ", conP);
+                    conP.Open();
+                    cmdP.Parameters.Add(new SqlParameter("@id", IdDelete));
+                    cmdP.ExecuteNonQuery();
+                    //удаление отделения 
+                    SqlConnection conO = new SqlConnection(sconnect);
+                    SqlCommand cmdO = new SqlCommand("Delete From ВрачебноеОтделение WHERE ТабельныйНомер=@ID ", conO);
+                    conO.Open();
+                    cmdO.Parameters.Add(new SqlParameter("@id", IdDelete));
+                    cmdO.ExecuteNonQuery();
+                    //удаление графика
+                    SqlConnection conG = new SqlConnection(sconnect);
+                    SqlCommand cmdG = new SqlCommand("Delete From График WHERE ТабельныйНомер=@ID ", conG);
+                    conG.Open();
+                    cmdG.Parameters.Add(new SqlParameter("@id", IdDelete));
+                    cmdG.ExecuteNonQuery();
+                    //удаление сотрудника
                     SqlConnection con = new SqlConnection(sconnect);
                     SqlCommand cmd = new SqlCommand("Delete From Сотрудник WHERE ТабельныйНомер=@ID ", con);
                     con.Open();
                     cmd.Parameters.Add(new SqlParameter("@id", IdDelete));
                     cmd.ExecuteNonQuery();
+                   
+
                     MessageBox.Show("Запись удолена");
                     refresh();
                     имяTextBox.Clear();
@@ -227,6 +248,7 @@ namespace ДипломнаяРабота
                     снилсTextBox.Clear();
                     логинTextBox.Clear();
                     парольTextBox.Clear();
+
                 }
                 catch
                 {
@@ -247,9 +269,9 @@ namespace ДипломнаяРабота
                 string IdUpdate = Convert.ToString(row["ТабельныйНомер"]);
                 try
                 {
-                    string FirstName = имяTextBox.Text;
-                    string LastName = фамилияTextBox.Text;
-                    string MiddleName = отчествоTextBox.Text;
+                    string FirstName = имяTextBox.Text.Replace(" ", "");
+                    string LastName = фамилияTextBox.Text.Replace(" ", "");
+                    string MiddleName = отчествоTextBox.Text.Replace(" ", "");
                     string Telephone = телефонTextBox.Text;
                     string Passport = паспортTextBox.Text;
                     string Snils = снилсTextBox.Text;
@@ -293,7 +315,7 @@ namespace ДипломнаяРабота
             string middleName = Фамилия.Text;
             string text = Фамилия.Text; // получаем текст из TextBox
             string[] words = text.Split(' '); // разбиваем текст на слова по пробелу
-            if (words.Length > 1) // проверяем, что введено хотя бы два слова
+            if (words.Length > 2) // проверяем, что введено хотя бы два слова
             {
                 string Surname = words[0];
                 string Name = words[1];
@@ -309,8 +331,8 @@ namespace ДипломнаяРабота
             con.Open();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.Add(new SqlParameter("@surname", surname));
-            cmd.Parameters.Add(new SqlParameter("@name", name));
+            cmd.Parameters.Add(new SqlParameter("@surname", name));
+            cmd.Parameters.Add(new SqlParameter("@name", surname));
             cmd.Parameters.Add(new SqlParameter("@middleName", middleName));
             SqlDataReader dr = cmd.ExecuteReader();
             dt.Load(dr);

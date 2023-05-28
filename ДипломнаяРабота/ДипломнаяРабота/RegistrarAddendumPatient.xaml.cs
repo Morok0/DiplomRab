@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,15 +24,17 @@ namespace ДипломнаяРабота
     public partial class RegistrarAddendumPatient : Page
     {
         MainWindow mainWindow = new MainWindow();
-
+        
         private readonly User _user;
         public RegistrarAddendumPatient(User user)
         {
             _user = user;
             InitializeComponent();
             refresh();
+            
         }
-
+        
+       
         private void TablePatient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -138,7 +141,6 @@ namespace ДипломнаяРабота
                 cmdd.Parameters.Add(new SqlParameter("@НомерКвартиры", ApartmentNumber));
                 cmdd.Parameters.Add(new SqlParameter("@ПочтовыйИндекс", PostalCode));
                 cmdd.Parameters.Add(new SqlParameter("@Телефон", Telephone));
-
                 cmdd.ExecuteNonQuery();
 
                 MessageBox.Show("Запись добавлена");
@@ -158,6 +160,9 @@ namespace ДипломнаяРабота
                 домTextBox.Clear();
                 номерКвартирыTextBox.Clear();
                 почтовыйИндексTextBox.Clear();
+
+              
+                
             }
 
         }
@@ -173,11 +178,20 @@ namespace ДипломнаяРабота
                 string IdDelete = Convert.ToString(row["НомерПациента"]);
                 try
                 {
+                    //удаление отделения 
+                    SqlConnection conO = new SqlConnection(sconnect);
+                    SqlCommand cmdO = new SqlCommand("Delete From ПриёмВрача WHERE НомерПациента=@ID ", conO);
+                    conO.Open();
+                    cmdO.Parameters.Add(new SqlParameter("@id", IdDelete));
+                    cmdO.ExecuteNonQuery();
+                    //удаление пациента
                     SqlConnection con = new SqlConnection(sconnect);
                     SqlCommand cmd = new SqlCommand("Delete From Пациент WHERE НомерПациента=@ID ", con);
                     con.Open();
                     cmd.Parameters.Add(new SqlParameter("@id", IdDelete));
                     cmd.ExecuteNonQuery();
+                    
+
                     MessageBox.Show("Запись удолена");
                     refresh();
                     профессияTextBox.Clear();
@@ -229,7 +243,7 @@ namespace ДипломнаяРабота
                     string House = домTextBox.Text;
                     string ApartmentNumber = номерКвартирыTextBox.Text;
                     string PostalCode = почтовыйИндексTextBox.Text;
-                    if ( FirstName == null || LastName == null || MiddleName == null || Telephone == null || Passport == null || Snils == null || Work == null || Profession == null || Polis == null || DateOfBirth == null || City == null || Street == null || House == null || ApartmentNumber == null || PostalCode == null)
+                    if (имяTextBox.Text == "" || фамилияTextBox.Text == "" || отчествоTextBox.Text == "" || телефонTextBox.Text == "" || паспортTextBox.Text == "" || снилсTextBox.Text == "" || датаРожденияDatePicker.Text == "" || полисTextBox.Text == "" || городTextBox.Text == "" || улицаTextBox.Text == "" || домTextBox.Text == null || номерКвартирыTextBox.Text == "" || почтовыйИндексTextBox.Text == "" )
                     {
                         MessageBox.Show("Проверте все ли поля заполнены");
                     }
@@ -326,5 +340,6 @@ namespace ДипломнаяРабота
                 ((TextBox)sender).Text = ((TextBox)sender).Text.ToUpper();
             ((TextBox)sender).Select(((TextBox)sender).Text.Length, 0);
         }
+        
     }
 }

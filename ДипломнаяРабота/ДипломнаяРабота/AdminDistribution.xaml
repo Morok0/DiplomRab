@@ -19,17 +19,17 @@
             <ColumnDefinition Width="159*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="TableAdministrator" ColumnWidth="120" HorizontalAlignment="Left" Height="417" Margin="10,10,0,0" VerticalAlignment="Top" Width="1570" SelectionChanged="TableAdministrator_SelectionChanged" FontSize="15"/>
-        
-        <Button Content="Выбрать сотрудника" HorizontalAlignment="Left" Margin="885,455,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Admin" BorderBrush="#FF8AA3F5">
+        <DataGrid x:Name="TableAdministrator" ColumnWidth="120" Height="417" Margin="10,10,736,0" VerticalAlignment="Top" SelectionChanged="TableAdministrator_SelectionChanged" FontSize="15"/>
+
+        <Button Content="Выбрать сотрудника" HorizontalAlignment="Right" Margin="0,0,475,530" VerticalAlignment="Bottom" Width="230" Height="40" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Admin" BorderBrush="#FF8AA3F5">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        
-        <Grid x:Name="grid1" DataContext="{StaticResource профессияViewSource}" HorizontalAlignment="Left" Margin="15,506,0,0" VerticalAlignment="Top">
+
+        <Grid x:Name="grid1" DataContext="{StaticResource профессияViewSource}" HorizontalAlignment="Left" Margin="17,456,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -46,11 +46,12 @@
             <TextBox x:Name="категорияTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="6,10,0,2" Text="{Binding Категория, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" Grid.Column="1" Grid.Row="1"/>
             <Label Content="Оклад:" Grid.Column="0" HorizontalAlignment="Left" Margin="137,5,0,93" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Height="38" Width="71"/>
             <TextBox x:Name="окладTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="6,10,0,96" Grid.Row="2" Text="{Binding Оклад, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15"/>
-            <TextBox x:Name="СотрудникTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="115,-46,-421,64" Grid.Row="0" Text="{Binding НомерПрофессии, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="720" Grid.ColumnSpan="2" FontSize="15"/>
-            <Label Content="Сотрудник:" HorizontalAlignment="Left" Margin="3,-53,0,64" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Height="37" Width="112"/>
+            <TextBox x:Name="СотрудникTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="790,-326,-1149,344" Grid.Row="0" Text="{Binding НомерПрофессии, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom" Width="565" FontSize="15" Grid.Column="1"/>
+            <Label Content="Сотрудник:" HorizontalAlignment="Left" Margin="673,-329,-579,340" Grid.Row="0" VerticalAlignment="Center" FontSize="20" Height="37" Width="112" Grid.Column="1"/>
+            <TextBox x:Name="СотрудникTextBox_Copy" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="790,-326,-1149,344" Grid.Row="0" Text="{Binding НомерПрофессии, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom" Width="565" FontSize="15" Grid.Column="1"/>
         </Grid>
-        
-        <Grid x:Name="grid1_Copy" DataContext="{StaticResource отделениеViewSource}" HorizontalAlignment="Left" Margin="445,510,0,0" VerticalAlignment="Top">
+
+        <Grid x:Name="grid1_Copy" DataContext="{StaticResource отделениеViewSource}" HorizontalAlignment="Left" Margin="447,460,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -62,16 +63,16 @@
             <Label Content="Название отделения:" Grid.Column="0" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="названиеОтделенияTextBox" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3,0,0,7" Grid.Row="1" Text="{Binding Название, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom" Width="200" FontSize="15" TextChanged="названиеОтделенияTextBox_TextChanged"/>
         </Grid>
-        
-        <Button Content="Внести данные" HorizontalAlignment="Left" Margin="621,605,0,0" VerticalAlignment="Top" Width="230" Height="60" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_ToAppoint" BorderBrush="#FF8AA3F5">
+
+        <Button Content="Внести данные" HorizontalAlignment="Left" Margin="623,556,0,0" VerticalAlignment="Top" Width="230" Height="40" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_ToAppoint" BorderBrush="#FF8AA3F5">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        
-        <Grid x:Name="grid2" DataContext="{StaticResource отделениеViewSource}" HorizontalAlignment="Left" Margin="475,557,0,0" VerticalAlignment="Top">
+
+        <Grid x:Name="grid2" DataContext="{StaticResource отделениеViewSource}" HorizontalAlignment="Left" Margin="477,508,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -82,8 +83,8 @@
             <Label Content="Номер Кабинета:" Grid.Column="0" HorizontalAlignment="Left" Margin="6,0,0,6" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="номерКабинетаTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3" Grid.Row="0" Text="{Binding НомерКабинета, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" TextChanged="номерКабинетаTextBox_TextChanged"/>
         </Grid>
-        
-        <TextBox x:Name="Фамилия"  TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="1170,455,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" FontSize="20" BorderBrush="#FF8AA3F5">
+
+        <TextBox x:Name="Фамилия"  TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" HorizontalAlignment="Right" Height="30" Margin="0,0,315,705" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="390" FontSize="20" BorderBrush="#FF8AA3F5">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None"  Opacity="0.4" Stretch="None" AlignmentX="Left" >
                     <VisualBrush.Visual>
@@ -104,16 +105,16 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        
-        <ComboBox x:Name="AccessRights" HorizontalAlignment="Left" Margin="1360,510,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.355,0.438" FontSize="15" SelectionChanged="AccessRights_SelectionChanged"/>
-        
-        <Button Content="Отсортировать по:" HorizontalAlignment="Left" Margin="1170,510,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="185" Height="30" Background="#FF8AA3F5" BorderBrush="#FF8AA3F5" FontSize="20" Click="Button_Click">
+
+        <ComboBox x:Name="AccessRights" HorizontalAlignment="Right" Margin="0,0,315,650" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="30" RenderTransformOrigin="0.355,0.438" FontSize="15" SelectionChanged="AccessRights_SelectionChanged"/>
+
+        <Button Content="Отсортировать по:" HorizontalAlignment="Right" Margin="0,0,520,650" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Width="185" Height="30" Background="#FF8AA3F5" BorderBrush="#FF8AA3F5" FontSize="20" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-    
+
     </Grid>
 </Page>

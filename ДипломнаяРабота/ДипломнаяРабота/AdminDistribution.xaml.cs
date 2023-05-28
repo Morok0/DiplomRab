@@ -104,13 +104,13 @@ namespace ДипломнаяРабота
                     bufAdministrator = IdDisplay;
                     if(СотрудникTextBox==null)
                     {
-                        СотрудникTextBox.Text += LastName + FirstName + Middl;
+                        СотрудникTextBox.Text += LastName.Replace(" ", "") + " " + FirstName.Replace(" ", "")+ " " + Middl.Replace(" ", "");
                     }
                     
                     else
                     {
                         СотрудникTextBox.Text = null;
-                        СотрудникTextBox.Text += LastName + FirstName + Middl;
+                        СотрудникTextBox.Text += LastName.Replace(" ", "") + " " + FirstName.Replace(" ", "") + " " + Middl.Replace(" ", "");
                     }
 
 
@@ -132,11 +132,11 @@ namespace ДипломнаяРабота
             { 
             //инициализация переменных
             //string ProfessionNumber = номерПрофессииTextBox.Text;
-            string Name = названиеTextBox.Text;
-            string Salary = окладTextBox.Text;
-            string Category = категорияTextBox.Text;
+                string Name = названиеTextBox.Text.Replace(" ", "");
+                string Salary = окладTextBox.Text.Replace(" ", "");
+                string Category = категорияTextBox.Text.Replace(" ", "");
 
-            if ( Name == null || Salary == null || Category == null)
+                if ( названиеTextBox.Text == "" || окладTextBox.Text == "" || категорияTextBox.Text == "")
             {
                 MessageBox.Show("Проверте все ли поля заполнены");
             }
@@ -157,10 +157,10 @@ namespace ДипломнаяРабота
             }
 
             //string DepartmentNumber = номерОтделенияTextBox.Text;
-            string NameDepartament = названиеОтделенияTextBox.Text;
-            string Number = номерКабинетаTextBox.Text;
+            string NameDepartament = названиеОтделенияTextBox.Text.Replace(" ", "");
+                string Number = номерКабинетаTextBox.Text.Replace(" ", "");
 
-            if ( Name == null)
+                if (названиеОтделенияTextBox.Text == "" || номерКабинетаTextBox.Text == "")
             {
                 MessageBox.Show("Проверте все ли поля заполнены");
             }
@@ -237,14 +237,14 @@ namespace ДипломнаяРабота
 
                 }
                 MessageBox.Show("Данные успешно добавлены");
-                СотрудникTextBox.Text = null;
+                СотрудникTextBox.Clear(); 
                 //номерПрофессииTextBox.Text = null;
-                названиеTextBox.Text = null;
-                окладTextBox.Text = null;
-                категорияTextBox.Text = null;
+                названиеTextBox.Clear();
+                окладTextBox.Clear();
+                категорияTextBox.Clear();
                 //номерОтделенияTextBox.Text = null;
-                названиеОтделенияTextBox.Text = null;
-                номерКабинетаTextBox.Text = null;
+                названиеОтделенияTextBox.Clear();
+                номерКабинетаTextBox.Clear();
             }
             catch
             {

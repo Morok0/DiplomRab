@@ -55,9 +55,9 @@
             <Label Content="Конец Приёма:" Grid.Column="0" HorizontalAlignment="Left" Margin="40,3,0,3" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
             <TextBox x:Name="конецПриёмаTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="194,10,0,3" Grid.Row="2" Text="{Binding КонецПриёма, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" FontSize="15" Grid.ColumnSpan="2"/>
             <Label Content="Диагноз:" Grid.Column="0" HorizontalAlignment="Left" Margin="7,83,0,-120" Grid.Row="7" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="диагнозTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="70" Margin="102,87,0,-117" Grid.Row="7" Text="{Binding Диагноз, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="600" FontSize="15" Grid.ColumnSpan="2"/>
-            <Label Content="Лечение:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,169,0,-206" Grid.Row="7" VerticalAlignment="Center" FontSize="20"/>
-            <TextBox x:Name="лечениеTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="70" Margin="102,173,-165,-203" Grid.Row="7" Text="{Binding Лечение, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="600" FontSize="15" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="диагнозTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="102,103,0,-117" Grid.Row="7" Text="{Binding Диагноз, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="600" FontSize="15" Grid.ColumnSpan="2"/>
+            <Label Content="Лечение:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,134,0,-155" Grid.Row="7" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="лечениеTextBox" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="102,138,0,-152" Grid.Row="7" Text="{Binding Лечение, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="600" FontSize="15" Grid.ColumnSpan="2"/>
         </Grid>
         <DataGrid x:Name="TablePatient" ColumnWidth="120" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="1580" SelectionChanged="DataGrid_SelectionChanged" FontSize="15"/>
         <Button Content="Выбрать запись" HorizontalAlignment="Left" Margin="745,406,0,0" VerticalAlignment="Top" Width="230" Height="40" Background="#FF8AA3F5" FontSize="20" Click="Button_Click_Patient" BorderBrush="#FF8AA3F5">
@@ -67,6 +67,17 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Grid x:Name="grid2" DataContext="{StaticResource приёмВрачаViewSource}" HorizontalAlignment="Left" Margin="12,655,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Услуга Или Процедура:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20"/>
+            <TextBox x:Name="услугаИлиПроцедураTextBox"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Height="30" Margin="3,6,0,7" Grid.Row="0" Text="{Binding УслугаИлиПроцедура, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="467" FontSize="15"/>
+        </Grid>
 
     </Grid>
 </Page>

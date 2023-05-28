@@ -91,8 +91,10 @@ namespace ДипломнаяРабота
             string LastName = диагнозTextBox.Text;
             bufDiagnosis = LastName;
             string MiddleName = лечениеTextBox.Text;
-            
-                if (PatientNumber == null || FirstName == null || LastName == null || MiddleName == null)
+            string Service = услугаИлиПроцедураTextBox.Text;
+
+
+                if (диагнозTextBox.Text == "" || конецПриёмаTextBox.Text == "" || конецПриёмаTextBox.Text == "" || MiddleName == null)
                 {
                     MessageBox.Show("Проверте все ли поля заполнены");
                 }
@@ -106,20 +108,32 @@ namespace ДипломнаяРабота
                     cmdd.Parameters.Add(new SqlParameter("@КонецПриёма", FirstName));
                     cmdd.Parameters.Add(new SqlParameter("@Диагноз", LastName));
                     cmdd.Parameters.Add(new SqlParameter("@Лечение", MiddleName));
+                    cmdd.Parameters.Add(new SqlParameter("@УслугаИлиПроцедура", Service));
                     cmdd.Parameters.Add(new SqlParameter("@ТабельныйНомер", buf));
                     cmdd.Parameters.Add(new SqlParameter("@НомерПациента", bufPatient));
                     cmdd.Parameters.Add(new SqlParameter("@НомерЗаписи", bufRecord));
                     cmdd.ExecuteNonQuery();
                     MessageBox.Show("Запись добавлена");
 
-                SqlConnection con = new SqlConnection(sconnect);
-                SqlCommand cmd = new SqlCommand("INSERT_ИсторияБолезни", con);
-                con.Open();
-                cmd.CommandType = CommandType.StoredProcedure; 
-                cmd.Parameters.Add(new SqlParameter("@Диагноз", LastName));
-                cmd.Parameters.Add(new SqlParameter("@Лечение", MiddleName));      
-                cmd.Parameters.Add(new SqlParameter("@НомерПациента", bufPatient));
-                cmd.ExecuteNonQuery();
+                if (диагнозTextBox.Text=="" || услугаИлиПроцедураTextBox.Text == ""|| лечениеTextBox.Text == "")
+                {
+
+                }
+                else
+                {
+                    DateTime otherDate = DateTime.Now;
+                    SqlConnection con = new SqlConnection(sconnect);
+                    SqlCommand cmd = new SqlCommand("INSERT_ИсторияБолезни", con);
+                    con.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@Диагноз", LastName));
+                    cmd.Parameters.Add(new SqlParameter("@Лечение", MiddleName));
+                    cmdd.Parameters.Add(new SqlParameter("@УслугаИлиПроцедура", Service));
+                    cmdd.Parameters.Add(new SqlParameter("@Дата", otherDate));
+                    cmd.Parameters.Add(new SqlParameter("@НомерПациента", bufPatient));
+                    cmd.ExecuteNonQuery();
+                }
+               
 
                 refreshReception();
                 refreshPatient();
